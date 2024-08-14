@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "bun x --bun astro dev",
     "start": "bun x --bun astro dev",
-    "build": "bun x --bun astro check && bun x --bun astro build",
+    "bld": "bun x --bun astro check && bun x --bun astro build",
     "preview": "bun x --bun astro preview",
     "astro": "bun x --bun astro"
   },
