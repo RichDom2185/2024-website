@@ -9,12 +9,16 @@ import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
+import { plantuml } from 'src/lib/json';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
   integrations: [mdx(), sitemap(), react(), tailwind()],
   markdown: {
+    shikiConfig: {
+      langs: [plantuml],
+    },
     remarkPlugins: [
       remarkMath,
       remarkTruncateLinks,
