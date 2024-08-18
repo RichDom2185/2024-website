@@ -12,7 +12,7 @@ import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
-import { markdownClasses, plantuml } from 'src/lib/json';
+import { markdownClasses, plantuml } from './src/lib/json';
 
 // function remarkMeta() {
 //   return function transformer(tree) {
