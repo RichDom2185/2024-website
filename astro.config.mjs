@@ -1,15 +1,25 @@
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeMathjax from 'rehype-mathjax';
 import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
 import { plantuml } from 'src/lib/json';
+
+// function remarkMeta() {
+//   return function transformer(tree) {
+//     visit(tree, 'code', (node) => {
+//       console.log(node.meta);
+//     });
+//   };
+// }
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +35,11 @@ export default defineConfig({
       [remarkToc, { depth: 3 }],
       remarkGemoji,
     ],
-    rehypePlugins: [rehypeMathjax, rehypeAccessibleEmojis],
+    rehypePlugins: [
+      rehypeMathjax,
+      rehypeAccessibleEmojis,
+      rehypeHeadingIds,
+      [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+    ],
   },
 });
