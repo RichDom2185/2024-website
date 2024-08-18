@@ -6,12 +6,13 @@ import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeClassNames from 'rehype-class-names';
 import rehypeMathjax from 'rehype-mathjax';
 import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
-import { plantuml } from 'src/lib/json';
+import { markdownClasses, plantuml } from 'src/lib/json';
 
 // function remarkMeta() {
 //   return function transformer(tree) {
@@ -40,6 +41,7 @@ export default defineConfig({
       rehypeAccessibleEmojis,
       rehypeHeadingIds,
       [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+      [rehypeClassNames, markdownClasses],
     ],
   },
 });

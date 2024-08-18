@@ -1,0 +1,11 @@
+{
+  "img:not(.emoji)": [
+    "rounded",
+    "mx-auto",
+    "shadow-lg",
+    "border",
+    "min-w-[30%]",
+    "max-h-[60vh]",
+    "object-contain"
+  ]
+}
