@@ -1,0 +1,168 @@
+---
+type Props = {
+  type: 'note' | 'tip' | 'info' | 'warning' | 'danger';
+};
+
+const { type } = Astro.props;
+---
+
+<div class:list={['admonition', `admonition-type-${type}`]}>
+  <p class="admonition-title">{type.toUpperCase()}</p>
+  <slot />
+</div>
+
+<style lang="scss">
+  // Copyright 2022 Richard Dominick
+  // https://github.com/RichDom2185/jekyll-admonitions
+
+  // Admonition types: note, tip, info, warning, danger
+  .admonition {
+    border-bottom-width: 2px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 0.625rem 0.75rem;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    @media print {
+      break-inside: avoid-page;
+    }
+
+    &.admonition-type-note {
+      border-color: #737373;
+      background-color: #f3f3f3;
+
+      @media (prefers-color-scheme: dark) {
+        border-color: gray;
+        background-color: #52525280; // neutral-600/50
+      }
+    }
+
+    &.admonition-type-tip {
+      border-color: #11b811;
+      background-color: #e2f3e2;
+
+      @media (prefers-color-scheme: dark) {
+        border-color: #13dd13;
+        background-color: #14532d80; // green-900/50
+      }
+    }
+
+    &.admonition-type-info {
+      border-color: #0693ca;
+      background-color: #eef9fc;
+
+      @media (prefers-color-scheme: dark) {
+        border-color: #07aff1;
+        background-color: #0c4a6e80; // sky-900/50
+      }
+    }
+
+    &.admonition-type-warning {
+      border-color: #cd6005;
+      background-color: #ffedd5c0; // orange-100/75
+
+      @media (prefers-color-scheme: dark) {
+        border-color: #ff7701;
+        background-color: #6a3103;
+      }
+    }
+
+    &.admonition-type-danger {
+      border-color: #b60738;
+      background-color: #ffebec;
+
+      @media (prefers-color-scheme: dark) {
+        border-color: #e40246;
+        background-color: #6e0523;
+      }
+    }
+  }
+
+  .admonition-title {
+    // FIXME: This is a hack to override Tailwind parent styles.
+    font-weight: bold !important;
+    margin-bottom: 10px;
+    color: var(--admonition-title-color);
+
+    .admonition-type-note & {
+      --admonition-title-color: #474747;
+
+      @media (prefers-color-scheme: dark) {
+        --admonition-title-color: #a3a3a3; // neutral-400
+      }
+    }
+
+    .admonition-type-tip & {
+      --admonition-title-color: #052e16; // green-950
+
+      @media (prefers-color-scheme: dark) {
+        --admonition-title-color: #22c55e; // green-500
+      }
+    }
+
+    .admonition-type-info & {
+      --admonition-title-color: #082f49; // sky-950
+
+      @media (prefers-color-scheme: dark) {
+        --admonition-title-color: #0ea5e9; // sky-500
+      }
+    }
+
+    .admonition-type-warning & {
+      --admonition-title-color: #4d3800;
+
+      @media (prefers-color-scheme: dark) {
+        // --admonition-title-color: #f7b500;
+        --admonition-title-color: #fdba74; // orange-300
+      }
+    }
+
+    .admonition-type-danger & {
+      --admonition-title-color: #450a0a; // red-950
+
+      @media (prefers-color-scheme: dark) {
+        --admonition-title-color: #f87171; // red-400
+      }
+    }
+  }
+
+  .admonition-title::before {
+    // Adapted from https://iconify.design/docs/usage/css/
+    display: inline-block;
+    margin-right: 6px;
+
+    content: '';
+    background-color: var(--admonition-title-color);
+    -webkit-mask: var(--svg) no-repeat 50% 50%;
+    mask: var(--svg) no-repeat 50% 50%;
+    width: 1em;
+    height: 1em;
+
+    // Inline icon. https://iconify.design/docs/icon-components/react/inline.html
+    vertical-align: -0.125em;
+
+    .admonition-type-note & {
+      --svg: url(https://api.iconify.design/heroicons/bookmark-20-solid.svg);
+    }
+
+    .admonition-type-tip & {
+      --svg: url(https://api.iconify.design/heroicons/light-bulb-20-solid.svg);
+    }
+
+    .admonition-type-info & {
+      --svg: url(https://api.iconify.design/heroicons/document-text-solid.svg);
+      // --svg: url(https://api.iconify.design/heroicons/information-circle-20-solid.svg);
+    }
+
+    .admonition-type-warning & {
+      --svg: url(https://api.iconify.design/heroicons/exclamation-triangle-solid.svg);
+    }
+
+    .admonition-type-danger & {
+      --svg: url(https://api.iconify.design/heroicons/fire-20-solid.svg);
+    }
+  }
+</style>
