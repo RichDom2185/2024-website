@@ -1,9 +1,33 @@
 {
+  "*": "scroll-mt-[--header-height]",
+  "*:not(h1, h2, h3, h4, h5, h6)": "TEXT_NORMAL",
+  "h1, h2, h3, h4, h5, h6": ["font-display", "text-left"],
+  "h1, h2, h3": [
+    "TEXT_MEDIUM",
+    "relative",
+    "cursor-pointer",
+    "hover:underline",
+    "underline-offset-8",
+    "decoration-dashed"
+  ],
+  "h4, h5, h6": "TEXT_BOLD",
+  "h1": "text-xl lg:text-2xl",
+  "h2": "text-lg lg:text-xl",
+  "h3": "text-lg",
+  "a": [
+    "hover:underline",
+    "hover:decoration-dashed",
+    "underline-offset-4",
+    "LINK_DYNAMIC_NO_HOVER"
+  ],
+  "ol li": ["list-decimal", "ml-5"],
+  "ul li": ["list-disc", "ml-5"],
   "img:not(.emoji)": [
     "rounded",
     "mx-auto",
     "shadow-lg",
     "border",
+    "BORDER_DYNAMIC_COLOR",
     "min-w-[30%]",
     "max-h-[60vh]",
     "object-contain"

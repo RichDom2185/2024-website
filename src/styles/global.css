@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .TEXT_DYNAMIC_SPACING {
+    @apply tracking-normal dark:tracking-wide;
+  }
+
+  .BORDER_DYNAMIC_COLOR {
+    @apply border-gray-300 dark:border-gray-700;
+  }
+
+  .LINK_DYNAMIC_HOVER {
+    @apply hover:text-blue-600 dark:hover:text-blue-300;
+  }
+
+  .LINK_DYNAMIC_NO_HOVER {
+    @apply text-blue-600 dark:text-blue-300;
+  }
+}
+
+/*
+ * The following are adapted from
+ * https://github.com/RichDom2185/2023-website/blob/master/src/utils/styles.ts
+ */
+@layer utilities {
+  .TEXT_BOLD {
+    @apply font-bold dark:font-semibold;
+  }
+
+  .TEXT_NORMAL {
+    @apply font-normal dark:font-light;
+  }
+
+  .TEXT_MEDIUM {
+    @apply font-medium dark:font-normal;
+  }
+}
