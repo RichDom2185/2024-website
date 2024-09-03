@@ -1,0 +1,10 @@
+---
+type Props = {
+  class?: string;
+  icon: string;
+  inline?: boolean;
+};
+const { icon, inline, class: className } = Astro.props;
+---
+
+<iconify-icon class={className} inline={inline} icon={icon}></iconify-icon>
