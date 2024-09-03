@@ -14,10 +14,8 @@ const { to, hoverClass = '' } = Astro.props;
   href={to}
   target="_blank"
   rel="noopener noreferrer"
->
-  <span
+  ><span
     class="underline decoration-dotted hover:decoration-solid underline-offset-4"
-  >
-    <slot />
-  </span>
-</a>
+    ><slot /></span
+  ></a
+>
