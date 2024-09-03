@@ -1,0 +1,20 @@
+---
+import {
+  socialToColorClassMap,
+  socialToIconMap,
+  type Social,
+} from '@site-types/social';
+import Icon from 'src/components/common/Icon.astro';
+import ExternalLink from '../common/ExternalLink.astro';
+
+type Props = {
+  type: Social;
+  to: string;
+  inline?: boolean;
+};
+const { type, to, inline = false } = Astro.props;
+---
+
+<ExternalLink to={to} hoverClass={socialToColorClassMap[type]}>
+  <Icon inline={inline} icon={socialToIconMap[type]} />
+</ExternalLink>

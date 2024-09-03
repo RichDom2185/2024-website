@@ -1,0 +1,23 @@
+---
+type Props = {
+  to: string;
+  hoverClass?: string;
+  // TODO: Configure rel via props
+};
+const { to, hoverClass = '' } = Astro.props;
+---
+
+<a
+  class:list={[
+    hoverClass || ['hover:text-blue-600', 'dark:hover:text-blue-300'],
+  ]}
+  href={to}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span
+    class="underline decoration-dotted hover:decoration-solid underline-offset-4"
+  >
+    <slot />
+  </span>
+</a>
