@@ -22,7 +22,7 @@
 
 /*
  * The following are adapted from
- * https://github.com/RichDom2185/2023-website/blob/master/src/utils/styles.ts
+ * https://github.com/RichDom2185/2023-website/blob/main/src/utils/styles.ts
  */
 @layer utilities {
   .TEXT_BOLD {
@@ -35,5 +35,23 @@
 
   .TEXT_MEDIUM {
     @apply font-medium dark:font-normal;
+  }
+
+  .BACKGROUND_DYNAMIC_COLOR {
+    @apply bg-white dark:bg-zinc-900;
+  }
+
+  .TEXT_DYNAMIC_COLOR {
+    @apply text-zinc-900 dark:text-stone-400;
+  }
+
+  .TEXT_STATIC_BLACK {
+    @apply text-zinc-900;
+  }
+}
+
+@layer components {
+  .SECTION_BODY_RESPONSIVE {
+    @apply w-full lg:w-5/6 mx-auto underline-offset-4 dark:tracking-wide;
   }
 }
