@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import solidJs from '@astrojs/solid-js';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
@@ -29,9 +30,10 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap(),
-    react(),
+    react({ include: ['**/react/*'] }),
     tailwind({ applyBaseStyles: false }),
     partytown(),
+    solidJs({ include: ['**/solidjs/*'] }),
   ],
   markdown: {
     shikiConfig: {
