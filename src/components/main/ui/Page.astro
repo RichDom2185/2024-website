@@ -1,0 +1,17 @@
+---
+import Sidebar from '../sidebar/Sidebar.astro';
+
+type Props = {
+  withSidebar: boolean;
+  withHeader: boolean;
+};
+const { withSidebar = false, withHeader = false } = Astro.props;
+---
+
+<div class="flex transition-colors duration-100">
+  {withSidebar && <Sidebar hideOnMobile />}
+  <div class="w-full">
+    {/* TODO: Support withHeader && <Header /> */}
+    <slot />
+  </div>
+</div>
