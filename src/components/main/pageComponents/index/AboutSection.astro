@@ -1,0 +1,74 @@
+---
+import { Technology, technologyToIconMap } from '@site-types/general';
+import Icon from 'src/components/common/Icon.astro';
+import ExternalLink from '../../common/ExternalLink.astro';
+import Section from '../../ui/Section.astro';
+
+const familiarTech: readonly Technology[] = [
+  Technology.PYTHON,
+  Technology.TYPESCRIPT,
+  Technology.REACT,
+  Technology.R,
+  Technology.GOLANG,
+  Technology.JAVASCRIPT,
+  Technology.POSTGRESQL,
+  Technology.JEKYLL,
+  Technology.JAVA,
+  Technology.TAILWINDCSS,
+];
+---
+
+<Section>
+  <div class:list={['SECTION_BODY_RESPONSIVE', 'space-y-10']}>
+    <h1
+      id="about"
+      class:list={[
+        'scroll-mt-[--header-height]',
+        'text-4xl font-display text-center',
+        'TEXT_BOLD',
+      ]}
+    >
+      <Icon inline icon="fluent-emoji-flat:waving-hand" /> About Me
+    </h1>
+    <div class="flex flex-wrap md:flex-nowrap gap-x-12 gap-y-6 text-justify">
+      <div class="w-full space-y-6">
+        <p class:list={['text-md md:text-lg', 'TEXT_MEDIUM']}>
+          Hi there! I am a young, aspiring full-stack developer who likes to
+          write <u><em>fast</em>, clean ✨, and <strong>extensible</strong></u> code.
+          I am currently a Penultimate Year Computer Science and Business Administration
+          double-degree student at the <ExternalLink to="https://nus.edu.sg"
+            >National University of Singapore</ExternalLink
+          >.
+        </p>
+        <p>
+          Currently the Chief Technology Officer at <ExternalLink
+            to="https://github.com/source-academy">Source Academy</ExternalLink
+          >, I am responsible for full-stack project management, and beyond
+          that, I am also involved in efforts to integrate Large Language Models
+          (LLMs) into the educational platform.
+        </p>
+      </div>
+      <div class="w-full space-y-6">
+        <p>
+          I am a <strong>very fast learner</strong>, and although primarily a
+          web developer, as a programmer, I have gained many language-agnostic
+          skills.
+        </p>
+        <p>
+          These, together with my endless curiosity to create apps and scripts
+          that work together to deliver great User and Developer Experiences.
+          Some of the technologies I am most familiar with include:
+        </p>
+        <ul class="columns-2 leading-relaxed">
+          {
+            familiarTech.map((name) => (
+              <li class="list-disc list-inside">
+                <Icon inline icon={technologyToIconMap[name]} /> {name}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</Section>
