@@ -29,11 +29,17 @@ export default defineConfig({
   site: 'https://example.com',
   integrations: [
     mdx(),
-    sitemap(),
-    react({ include: ['**/react/*'] }),
-    tailwind({ applyBaseStyles: false }),
     partytown(),
-    solidJs({ include: ['**/solidjs/*'] }),
+    react({
+      include: ['**/*.react.tsx'],
+    }),
+    sitemap(),
+    solidJs({
+      include: ['**/*.solid.tsx'],
+    }),
+    tailwind({
+      applyBaseStyles: false,
+    }),
   ],
   markdown: {
     shikiConfig: {
