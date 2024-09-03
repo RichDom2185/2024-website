@@ -49,7 +49,7 @@ export default defineConfig({
       rehypeMathjax,
       rehypeAccessibleEmojis,
       rehypeHeadingIds,
-      [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+      [rehypeAutolinkHeadings, { behavior: 'append' }],
       [rehypeClassNames, markdownClasses],
     ],
   },
