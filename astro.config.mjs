@@ -25,7 +25,12 @@ import { markdownClasses, plantuml } from './src/lib/json';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), react(), tailwind()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    react(),
+    tailwind({ applyBaseStyles: false }),
+  ],
   markdown: {
     shikiConfig: {
       langs: [plantuml],
