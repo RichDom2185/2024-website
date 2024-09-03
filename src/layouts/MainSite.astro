@@ -1,12 +1,14 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import { SITE_TITLE } from 'src/consts';
 import 'src/styles/global.css';
 import 'src/styles/mainsite.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
+    <ViewTransitions />
     {/* TODO: Deduplicate with BaseHead */}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
