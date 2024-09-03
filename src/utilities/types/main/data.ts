@@ -17,11 +17,18 @@ const projectLinkSchema = z.object({
 // }
 interface ProjectLink extends z.infer<typeof projectLinkSchema> {}
 
-export const projectSchema = z.object({
+const projectStrictSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
   links: z.array(projectLinkSchema as z.ZodType<ProjectLink>).optional(),
   tech: z.array(z.nativeEnum(Technology)).optional(),
+});
+
+// We allow undefined technology values for now
+// TODO: Investigate possibility of disallowing
+export const projectSchema = z.object({
+  ...projectStrictSchema.shape,
+  tech: z.array(z.nativeEnum(Technology).or(z.string())).optional(),
 });
 
 // See https://github.com/colinhacks/zod/issues/635#issuecomment-2196579063
@@ -32,9 +39,9 @@ export const projectSchema = z.object({
 //   links?: ProjectLink[]; // TODO: See link
 //   tech?: Technology[]; // TODO: See link
 // }
-export type Project = z.infer<typeof projectSchema>;
+export type Project = z.infer<typeof projectStrictSchema>;
 
-export const experienceSchema = z.object({
+const experienceStrictSchema = z.object({
   company: z.string(),
   link: z.string().optional(),
   position: z.string(),
@@ -42,6 +49,13 @@ export const experienceSchema = z.object({
   to: z.string(),
   description: z.string(),
   tech: z.array(z.nativeEnum(Technology)).optional(),
+});
+
+// We allow undefined technology values for now
+// TODO: Investigate possibility of disallowing
+export const experienceSchema = z.object({
+  ...experienceStrictSchema.shape,
+  tech: z.array(z.nativeEnum(Technology).or(z.string())).optional(),
 });
 
 // See https://github.com/colinhacks/zod/issues/635#issuecomment-2196579063
@@ -55,4 +69,4 @@ export const experienceSchema = z.object({
 //   description: string;
 //   tech?: Technology[]; // TODO: See link
 // }
-export type Experience = z.infer<typeof experienceSchema>;
+export type Experience = z.infer<typeof experienceStrictSchema>;
