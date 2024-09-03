@@ -1,0 +1,35 @@
+---
+import {
+  Technology,
+  technologyToColorClassMap,
+  technologyToIconMap,
+} from '@site-types/general';
+import Icon from 'src/components/common/Icon.astro';
+import Tooltip from '../common/Tooltip.astro';
+
+type Props = {
+  tech: Technology;
+  withTooltip?: boolean;
+  tooltipPosition?: 'top' | 'bottom' | 'left' | 'right';
+};
+const { tech, withTooltip = false, tooltipPosition = 'bottom' } = Astro.props;
+---
+
+<div class="leading-none relative">
+  <Icon
+    inline
+    class:list={[
+      'dark:grayscale hover:grayscale-0 transition-all',
+      'peer', // Used for tooltips
+      technologyToColorClassMap[tech],
+    ]}
+    icon={technologyToIconMap[tech] ?? 'fluent-mdl2:unknown'}
+  />
+  {
+    withTooltip && (
+      <Tooltip mode="peer" position={tooltipPosition}>
+        {tech}
+      </Tooltip>
+    )
+  }
+</div>
