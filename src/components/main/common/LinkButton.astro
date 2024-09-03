@@ -1,0 +1,35 @@
+---
+import Icon from 'src/components/common/Icon.astro';
+
+type Props = {
+  label: string;
+  href?: string;
+  isActive?: boolean;
+  leftIcon?: string;
+  rightIcon?: string;
+  // TODO: Configure rel via props
+};
+const { label, href, isActive, leftIcon, rightIcon } = Astro.props;
+---
+
+<a
+  class:list={[
+    'px-2 py-1 transition',
+    'select-none rounded',
+    'hover:shadow-md',
+    'hover:text-white dark:hover:text-stone-900',
+    'hover:bg-blue-600 dark:hover:bg-zinc-100',
+    isActive && [
+      'text-stone-900 dark:text-stone-200',
+      'bg-zinc-200 dark:bg-zinc-600',
+      'bg-opacity-95 dark:bg-opacity-90',
+      'shadow-none',
+    ],
+  ]}
+  href={href}
+  title={label}
+>
+  {leftIcon && <Icon inline icon={leftIcon} />}
+  {label}
+  {rightIcon && <Icon inline icon={rightIcon} />}
+</a>
