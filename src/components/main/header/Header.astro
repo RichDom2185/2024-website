@@ -1,0 +1,44 @@
+---
+import { Social } from '@site-types/social';
+import { Constants } from 'src/utilities/constants';
+import LinkButton from '../common/LinkButton.astro';
+import Logo from '../sidebar/Logo.astro';
+
+const { pathname } = Astro.url;
+---
+
+<header
+  class:list={[
+    'header',
+    'BACKGROUND_DYNAMIC_COLOR',
+    'TEXT_DYNAMIC_COLOR',
+    'bg-opacity-70 dark:bg-opacity-50',
+    'backdrop-blur',
+    'sticky top-0 w-full h-[--header-height]',
+    'flex items-center',
+    'gap-x-1 md:gap-x-5 lg:gap-x-6',
+    'px-3 md:px-5',
+    'py-4 text-sm font-display justify-end',
+    'TEXT_MEDIUM',
+  ]}
+>
+  <div class="text-xl grow flex sm:hidden">
+    <Logo />
+  </div>
+  <LinkButton
+    label="Experiments"
+    href="/experiments"
+    isActive={pathname === '/experiments'}
+  />
+  <LinkButton label="Blog" href="/blog" isActive={pathname === '/blog'} />
+  {/* TODO: Use target=_blank for external links */}
+  <LinkButton
+    label={Social.GITHUB}
+    href={Constants.social.GITHUB_URL}
+    rightIcon="heroicons-outline:external-link"
+  />
+  {/* TODO: Restore button */}
+  <!-- <div class="relative">
+    <Button label="Resume" />
+  </div> -->
+</header>
