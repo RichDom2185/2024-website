@@ -1,0 +1,39 @@
+/*
+ * The following are adapted from
+ * https://github.com/RichDom2185/2023-website/blob/main/src/index.css
+ */
+
+:root {
+  --header-height: 4rem;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-height: 3rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.header + * {
+  margin-top: calc(var(--header-height) * -1);
+  padding-top: calc(var(--header-height));
+}
+
+/* .horizontal-tb {
+  writing-mode: horizontal-tb;
+} */
+/* .vertical-rl {
+  writing-mode: vertical-rl;
+} */
+.vertical-lr {
+  writing-mode: vertical-lr;
+}
