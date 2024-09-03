@@ -1,0 +1,24 @@
+---
+import type { Experience } from '@site-types/data';
+
+const yearDisplay = (from: string, to: string) => {
+  // Only get years in from and to
+  const parsedFrom = from.replaceAll(/[^0-9]/g, '');
+  const parsedTo = to.replaceAll(/[^0-9]/g, '');
+  return to === 'Present'
+    ? `since ${parsedFrom}`
+    : parsedFrom === parsedTo
+      ? parsedFrom
+      : `${parsedFrom}-${parsedTo}`;
+};
+
+type Props = Experience;
+const { company, position, from, to } = Astro.props;
+---
+
+<div class="font-display space-y-1">
+  <p class="text-xs text-stone-600">
+    {company}, {yearDisplay(from, to)}
+  </p>
+  <h4 class="italic">{position}</h4>
+</div>
