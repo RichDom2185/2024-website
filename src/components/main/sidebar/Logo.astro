@@ -1,11 +1,16 @@
 ---
+const { pathname } = Astro.url;
 
+const href =
+  pathname === '/'
+    ? // Scroll to top when already on main page
+      'javascript:window.scrollTo({ top: 0 });'
+    : '/';
 ---
 
 <div class="text-center">
-  {/* TODO: Scroll to top when already on main page */}
   <a
-    href="/"
+    href={href}
     class:list={[
       'text-stone-500 hover:text-black',
       'dark:text-stone-400 dark:hover:text-stone-300',
