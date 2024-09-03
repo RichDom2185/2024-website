@@ -1,0 +1,145 @@
+- company: Flexii Pte. Ltd.
+  link: https://flexii.net
+  position: Full-Stack Software Engineer
+  from: May 2024
+  to: Aug 2024
+  description: |
+    * Designed and developed backend architecture using **Java** and **Spring Boot** for long-term scalability and maintainability of the codebase serving **4,000** users
+    * Designed and implemented **RBAC** + **ABAC** access control systems across 3 microservices to ensure data security and privacy
+    * Migrated the database from **Firestore** to **PostgreSQL** to improve type-safety and performance
+    * Implemented consistency checks to ensure integrity and reliability of 10,000 records throughout the migration process
+    * Set up **Docker**, **Google Cloud Platform** for microservices deployment infrastructure
+    * Integrate the new API clients to **React** (web) and **Flutter** (mobile) applications for seamless transitioning of over 100 clients to the new system
+    * Migrated frontend from JavaScript to **TypeScript**, fixing bugs along the way, improving code quality and maintainability of over 20,000 lines of code
+    * Refactored Flutter application architecture, increasing responsiveness and performance by **over 40&#215;**, increasing app accessibility and user satisfaction
+    * Enhanced frontend routing and state management for better user experience, performance and security
+  tech:
+    - Java
+    - Spring
+    - Google Cloud Platform
+    - Firebase
+    - PostgreSQL
+    - TypeScript
+    - React
+    - Redux
+    - Flutter
+    - Dart
+    - JavaScript
+    - GitHub
+    - Docker
+    - NGINX
+
+- company: Source Academy
+  link: https://github.com/source-academy
+  position: Chief Technology Officer
+  from: May 2023
+  to: Present
+  description: |
+    I am the current Chief Technology Officer and Lead Developer of [Source Academy](https://sourceacademy.org/contributors).
+
+    * Managed 5 teams working on parallel greenfield, brownfield projects focusing on a smooth and conflict-free development with minimal bugs and downtime
+    * Migrating to a containerised Docker architecture to enhance deployment flexibility and developer experience
+    * Adding SAML SSO-based support in addition to OAuth2 authentication
+    * Designed and created a new Golang API to power [Source Academy Stories](https://github.com/source-academy/stories-backend), a Jupyter Notebook-style technical blogging platform
+    * Refactoring the React frontend to support multiple different programming languages, improving flexibility and marketability for other kinds of programming courses
+    * Integrating Large Language Models into the stack (AWS Lambda, Elixir backend)
+  tech:
+    - React
+    - TypeScript
+    - Docker
+    - Amazon Web Services
+    - Elixir
+    - AWS Lightsail
+    - JavaScript
+    - GitHub
+    - Golang
+    - PostgreSQL
+- company: National University of Singapore
+  link: https://nus.edu.sg
+  position: Undergraduate Teaching Assistant
+  from: Jan 2023
+  to: Present
+  description: |
+    Courses taught:
+
+    * TIC2002 Introduction to Software Engineering
+
+      Helped students learn and apply Software Engineering and Object-Oriented Principles in small-scale projects.
+
+      ### **Semesters Taught**:
+
+      * [AY 2022/2023 Semester 2](https://nus-tic2002-ay2223s2.github.io/website/admin/#tutors)
+      * [AY 2023/2024 Semester 1](https://nus-tic2002-ay2324s1.github.io/website/admin/#tutors)
+      * [AY 2023/2024 Semester 2](https://nus-tic2002-ay2324s2.github.io/website/admin/#tutors)
+      * [AY 2024/2025 Semester 1](https://nus-tic2002-ay2425s1.github.io/website/admin/#tutors)
+  tech:
+    - Java
+    - GitHub
+- company: Source Academy
+  link: https://github.com/source-academy
+  position: Robotics Head
+  from: Sep 2022
+  to: Apr 2024
+  description: |
+    Created SEKER, a browser-based, backend-less runner for Python/Source programs on the LEGO SPIKE Prime, a MicroPython-based board, complete with Source language bindings for the SPIKE's internal Python API.
+
+    Following the discontinuation of the EV3, SEKER future-proofs the Source Academy robotics curriculum, using an interface that is generalisable to most boards that can run Python. SEKER is already being used in academic activities overseas.
+
+    * Improved security of Source Academy's robotics (EV3) workflow
+    * Modernised part of the frontend to React functional components
+  tech:
+    - Chakra UI
+    - Vite
+    # - WebSerial API
+    - TypeScript
+    - Python
+    - React
+    - Golang
+- company: Source Academy
+  link: https://github.com/source-academy
+  position: Student Software Developer
+  from: Aug 2022
+  to: Dec 2022
+  description: |
+    Developed a live dashboard to display real-time information on various sensors that are connected to remote Lego Mindstorms EV3 devices in Source Academy, a gamified online learning platform for Computer Science freshmen. This greatly enhances the collaborative learning experience for teams, especially for those who are not able to be present in person, benefitting over 800 freshmen yearly.
+  tech:
+    # - WebSocket
+    - GitHub
+    - C
+    - TypeScript
+    - React
+- company: Computing for Voluntary Welfare Organisations
+  link: https://www.comp.nus.edu.sg/~vwo/projects/2022-aac.html
+  position: Full Stack Developer Intern
+  from: May 2022
+  to: Aug 2022
+  description: |
+    Collaborated with 15 other developers to maintain and further develop a Single Page Application for staff of Active Ageing Centres (AACs) serving over 12,000 elderly clients across Singapore, empowering their vision of scaling up to over half a million seniors in the next few years.
+
+    Led a team of 5 to create, design and launch a multi-language, elderly-friendly Progressive Web Application for volunteers of AACs. Built using Ionic Framework and TypeScript-React as frontend, together with Golang and PostgreSQL in the backend, the app unifies and simplifies the workflow that was previously spread across different systems.
+
+    * UI/UX, feature design and development
+    * Bug fixes
+    * Code design
+    * Code quality enhancements (type-safety, scalability, modularity)
+    * Code reviews
+    * Client/stakeholder communications
+  tech:
+    - PostgreSQL
+    - TypeScript
+    - Ionic
+    - GitLab
+    - React
+    - Golang
+- company: Source Academy
+  link: https://github.com/source-academy
+  position: Student Software Developer
+  from: Jan 2022
+  to: May 2022
+  description: |
+    Created a Wi-Fi and QR code-based pairing workflow for linking Source Academy with LEGO Mindstorms EV3 devices, simplifying the out-of-the-box experience for Computer Science freshmen in the gamified online learning platform, enhancing the learning experience of over 800 students taking the introductory programming module every year.
+  tech:
+    - Shell Scripting
+    - C
+    - Linux
+    - Golang

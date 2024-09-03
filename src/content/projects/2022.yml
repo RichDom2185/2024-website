@@ -1,0 +1,22 @@
+- name: FoodRem
+  description: |
+    A Java desktop app for managing inventory of a food store.
+
+    ---
+
+    _FoodRem is a school project for CS2103T Software Engineering_
+  tech:
+    - Java
+    - JavaFX
+    - JUnit
+    - GitHub
+    - Shopify Liquid
+    - Jekyll
+    - GitHub Actions
+  links:
+    - icon: simple-icons:github
+      url: https://github.com/AY2223S1-CS2103T-W16-2/tp
+      label: View the source code on GitHub
+    - icon: simple-icons:github
+      url: https://ay2223s1-cs2103t-w16-2.github.io/tp
+      label: View the documentation on GitHub Pages

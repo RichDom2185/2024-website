@@ -1,0 +1,80 @@
+- name: Videasy (WIP)
+  description: |
+    A web-based video editing app that allows users to create and edit videos with ease.
+
+    ---
+
+    * Fully browser-based, no installation required
+    * Drag-and-drop interface
+    * Timeline-based editing
+    * Caption-based editing
+    * Real-time video preview
+    * Video transition effects
+    * Automatic caption generation
+    * Export to all FFmpeg-supported formats
+
+    ---
+
+    _(Coming soon)_
+  tech:
+    - TypeScript
+    - React
+    - daisyUI
+    - TailwindCSS
+    - FFmpeg
+    - WebAssembly
+    - Vite
+  links:
+    - icon: simple-icons:github
+      url: https://richdom2185.github.io/videasy
+      label: View the WIP deployment on GitHub Pages
+
+- name: vue-latex
+  description: Render LaTeX math equations in Vue 3
+  tech:
+    - Vue
+    - TypeScript
+    - NodeJS
+    - NPM
+  links:
+    - icon: simple-icons:npm
+      url: https://www.npmjs.com/package/@richdom2185/vue-latex
+      label: View @richdom2185/vue-latex on npm
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/vue-latex
+      label: View the source code on GitHub
+
+- name: Python Buddy
+  description: |
+    Explain Python code in plain English, with diagrams.
+
+    ---
+
+    * Fully browser-based, no installation required
+    * Visualize Python code execution step by step
+    * Accessible, context-aware explanations, no need to learn environment diagrams
+  tech:
+    - Python
+    - FastAPI
+    - Streamlit
+    - TypeScript
+    - React
+    - Golang
+    - Vite
+    - DigitalOcean
+    - Docker
+    - JavaScript
+    - PostgreSQL
+    - Jekyll
+    - TailwindCSS
+    - NGINX
+  links:
+    - icon: simple-icons:digitalocean
+      url: https://pythonbuddy.dev
+      label: Visit Python Buddy live on its website
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/pythonbuddy-issue-tracker
+      label: View the issue tracker on GitHub
+    - icon: simple-icons:buymeacoffee
+      url: https://www.buymeacoffee.com/richdom2185
+      label: Support Python Buddy on Buy Me a Coffee

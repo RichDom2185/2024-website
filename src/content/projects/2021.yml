@@ -1,0 +1,15 @@
+- name: Shared Whiteboard App
+  description: |
+    A simple whiteboard app that allows multiple users to draw on the same canvas in real-time.
+
+    _**Note:** The backend is currently down. The app will not work as intended._
+    <!-- FIXME: Redeploy backend -->
+  tech:
+    - Flask
+    - Flutter
+    - Dart
+    - HTML
+  links:
+    - icon: simple-icons:github
+      url: https://richdom2185.github.io/shared_whiteboard_web_app
+      label: View the app on GitHub Pages

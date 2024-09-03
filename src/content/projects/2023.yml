@@ -1,0 +1,88 @@
+- name: URL Shortener
+  description: A simple, customizable URL shortener
+  tech:
+    - TypeScript
+    - Docker
+    - Bun
+    - HTML
+    - CSS
+    - Hono
+    - SQLite
+    - Postman
+  links:
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/url-shortener
+      label: View the source code on GitHub
+    - icon: simple-icons:digitalocean
+      url: https://share.richarddominick.me/
+      label: Visit the deployment on DigitalOcean
+
+- name: Source Academy
+  description: A platform for learning programming languages
+  tech:
+    - Amazon Web Services
+    - AWS Lightsail
+    - GitHub Actions
+    - C
+    - Docker
+    - Git
+    - Golang
+    - Elixir
+    - Linux
+    - MQTT
+    - React
+    - Redux
+    - TypeScript
+    - JavaScript
+    - AWS Lambda
+    - Vala
+    - GitHub
+  links:
+    - icon: simple-icons:github
+      url: https://github.com/source-academy/frontend
+      label: View the frontend on GitHub
+    - icon: simple-icons:github
+      url: https://github.com/source-academy/backend
+      label: View the backend on GitHub
+    - icon: simple-icons:github
+      url: https://github.com/source-academy/stories-backend
+      label: View the backend for Source Academy Stories on GitHub
+
+- name: glam-mailer
+  description: Beautiful emails, made easy
+  tech:
+    - Mantine UI
+    - React
+    - TypeScript
+    - Netlify
+    - Golang
+  links:
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/glam-mailer
+      label: View the frontend on GitHub
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/glam-mailer-api
+      label: View the backend on GitHub
+    - icon: simple-icons:netlify
+      url: https://glam-mailer.netlify.app/
+      label: View the deployment on Netlify
+
+- name: kiasutraveler
+  description: |
+    Aggregator of multiple travel APIs.
+
+    ---
+
+    _Kiasutraveler is a school project for DBA3702 Descriptive Analytics with R_
+  tech:
+    - R
+    - JavaScript
+    - Express
+    - NodeJS
+  links:
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/kiasutraveler
+      label: View the source code on GitHub
+    - icon: simple-icons:github
+      url: https://github.com/RichDom2185/kiasutraveler-api
+      label: View the backend on GitHub
