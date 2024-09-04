@@ -54,4 +54,10 @@
   .SECTION_BODY_RESPONSIVE {
     @apply w-full lg:w-5/6 mx-auto underline-offset-4 dark:tracking-wide;
   }
+
+  .MARKDOWN_CONTAINER {
+    @apply [&>ul_li]:list-disc [&>ul_li]:ml-4;
+    @apply [&>*_a]:underline [&>*_a]:decoration-dotted [&>*_a:hover]:hover:decoration-solid;
+    @apply [&>*_a:hover]:text-blue-600 [&>*_a:hover]:dark:text-blue-300;
+  }
 }

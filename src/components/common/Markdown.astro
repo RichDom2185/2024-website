@@ -1,0 +1,17 @@
+---
+type Props = {
+  linkTarget?: string;
+  class?: string;
+  text: string;
+};
+const { linkTarget, class: className, text } = Astro.props;
+
+const Container = className ? 'div' : Fragment;
+
+// TODO: Create pipeline
+const pipeline = '';
+
+const html = text;
+---
+
+<Container class={className} set:html={html} />
