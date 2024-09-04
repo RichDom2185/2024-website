@@ -1,5 +1,6 @@
 ---
 import type { Experience } from '@site-types/data';
+import Markdown from 'src/components/common/Markdown.astro';
 import TechnologyIcon from '../common/TechnologyIcon.astro';
 
 type Props = Experience;
@@ -44,14 +45,12 @@ const {
   </div>
 
   {
-    /* TODO: Use Markdown component */
     description && (
-      // <Markdown
-      //   linkTarget="_blank"
-      //   class={classNames('mt-3 space-y-1', Classes.MARKDOWN_CONTAINER)}
-      //   children={description}
-      // />
-      <>{description}</>
+      <Markdown
+        linkTarget="_blank"
+        class:list={['mt-3 space-y-1', 'MARKDOWN_CONTAINER']}
+        text={description}
+      />
     )
   }
   {
