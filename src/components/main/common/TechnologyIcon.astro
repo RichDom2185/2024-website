@@ -19,6 +19,7 @@ const { tech, withTooltip = false, tooltipPosition = 'bottom' } = Astro.props;
   <Icon
     inline
     class:list={[
+      'w-auto',
       'dark:grayscale hover:grayscale-0 transition-all',
       'peer', // Used for tooltips
       technologyToColorClassMap[tech],
