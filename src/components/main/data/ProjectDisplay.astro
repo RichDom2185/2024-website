@@ -1,0 +1,65 @@
+---
+import type { Project } from '@site-types/data';
+import Icon from 'src/components/common/Icon.astro';
+import Markdown from 'src/components/common/Markdown.astro';
+import TechnologyIcon from '../common/TechnologyIcon.astro';
+
+type Props = Project;
+const { name, description, links, tech } = Astro.props;
+---
+
+<div>
+  <h4 class:list={['TEXT_MEDIUM', 'text-xl']}>{name}</h4>
+  {
+    description && (
+      <Markdown
+        linkTarget="_blank"
+        class:list={[
+          'mt-1',
+          'MARKDOWN_CONTAINER',
+          // (Ab)use of hr as a spacer create a margin
+          '[&>hr]:my-2 [&>hr]:h-0 [&>hr]:border-0',
+        ]}
+        text={description}
+      />
+    )
+  }
+  {
+    links?.length && (
+      <ul class="mt-3 space-y-1 text-sm">
+        {links.map((link) => (
+          <li>
+            <a
+              class:list={['hover:text-blue-600', 'dark:hover:text-white']}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span
+                class:list={['hover:underline underline-offset-4', 'space-x-2']}
+              >
+                <Icon inline icon={link.icon} />
+                <span>{link.label}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  {
+    tech?.length && (
+      <div
+        class:list={['text-3xl text-center', 'flex flex-wrap gap-2', 'mt-4']}
+      >
+        {tech.map((techItem) => (
+          <TechnologyIcon
+            withTooltip
+            tooltipPosition="bottom"
+            tech={techItem}
+          />
+        ))}
+      </div>
+    )
+  }
+</div>
