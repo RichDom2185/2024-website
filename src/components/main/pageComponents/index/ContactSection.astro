@@ -1,0 +1,32 @@
+---
+import Icon from 'src/components/common/Icon.astro';
+import ContactForm from '../../forms/ContactForm.solid';
+import Section from '../../ui/Section.astro';
+---
+
+<Section>
+  <div class:list={['SECTION_BODY_RESPONSIVE', 'space-y-10']}>
+    <h1
+      id="contact"
+      class:list={[
+        'scroll-mt-[--header-height]',
+        'text-4xl font-display text-center',
+        'TEXT_BOLD',
+      ]}
+    >
+      <Icon inline icon="twemoji:left-speech-bubble" /> Send Me a Message
+    </h1>
+    <div class="w-full space-y-6">
+      <p class:list={['text-md md:text-lg text-justify', 'TEXT_MEDIUM']}>
+        I am currently looking for internship opportunities in areas of Software
+        Engineering, Software Development, and/or Technical Product Management.
+        If you are interested in finding out more, or even just to have a chat,
+        please feel free to contact me either via my socials, or send me an
+        instant message below!
+      </p>
+    </div>
+    <div>
+      <ContactForm client:visible />
+    </div>
+  </div>
+</Section>
