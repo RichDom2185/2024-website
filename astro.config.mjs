@@ -17,7 +17,7 @@ import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
-import { markdownClasses, plantuml } from './src/lib/json';
+import { brainfuck, markdownClasses, plantuml } from './src/lib/json';
 
 /**
  * @import {Options as AutolinkOptions} from 'rehype-autolink-headings';
@@ -66,8 +66,8 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      // @ts-expect-error incompatible type definitoion
-      langs: [plantuml],
+      // @ts-expect-error incompatible type definitions
+      langs: [brainfuck, plantuml],
     },
     remarkPlugins: [
       remarkMath,
