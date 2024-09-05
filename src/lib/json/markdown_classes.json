@@ -1,7 +1,7 @@
 {
   "*": "scroll-mt-[--header-height]",
   "*:not(h1, h2, h3, h4, h5, h6)": "TEXT_NORMAL",
-  "h1, h2, h3, h4, h5, h6": ["font-display", "text-left"],
+  "h1, h2, h3, h4, h5, h6": ["font-display", "text-left", "group"],
   "h1, h2, h3": [
     "TEXT_MEDIUM",
     "relative",
@@ -10,7 +10,14 @@
     "underline-offset-8",
     "decoration-dashed"
   ],
-  "h4, h5, h6": "TEXT_BOLD",
+  "h4, h5, h6": [
+    "TEXT_BOLD",
+    "relative",
+    "cursor-pointer",
+    "hover:underline",
+    "underline-offset-8",
+    "decoration-dashed"
+  ],
   "h1": "text-xl lg:text-2xl",
   "h2": "text-lg lg:text-xl",
   "h3": "text-lg",
