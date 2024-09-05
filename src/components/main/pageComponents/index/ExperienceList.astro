@@ -1,0 +1,30 @@
+---
+import type { Experience } from '@site-types/data';
+import ExperienceDisplay from '../../data/ExperienceDisplay.astro';
+
+type Props = {
+  category: string;
+  items: Experience[];
+};
+const { category, items } = Astro.props;
+---
+
+<div class="space-y-4">
+  <h2
+    class:list={[
+      'text-2xl text-center font-display tracking-wider',
+      'TEXT_MEDIUM',
+    ]}
+  >
+    {category}
+  </h2>
+  <div class="space-y-1">
+    {
+      items.map((experience, i) => (
+        <div class="w-full px-6 py-4 bg-stone-500 bg-opacity-5">
+          <ExperienceDisplay {...experience} />
+        </div>
+      ))
+    }
+  </div>
+</div>
