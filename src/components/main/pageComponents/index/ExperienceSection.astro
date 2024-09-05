@@ -1,0 +1,86 @@
+---
+import type { Experience } from '@site-types/data';
+import { experimental_AstroContainer } from 'astro/container';
+import { getEntry } from 'astro:content';
+import Icon from 'src/components/common/Icon.astro';
+import ExperienceDisplay from '../../data/ExperienceDisplay.astro';
+import ExperienceSummary from '../../data/ExperienceSummary.astro';
+import Section from '../../ui/Section.astro';
+import ExperienceList from './ExperienceList.astro';
+import ExperienceShowcase from './ExperienceShowcase.solid';
+
+const workHistory = await getEntry('experience', 'work');
+const educationHistory = await getEntry('experience', 'education');
+
+const categories: ReadonlyArray<[string, Experience[]]> = [
+  // We allow undefined technology values for now
+  // This safe to typecase for now.
+  // TODO: Investigate possibility of disallowing.
+  ['Work', workHistory.data as any],
+  ['Education', educationHistory.data as any],
+];
+
+const container = await experimental_AstroContainer.create();
+const summaries: Record<string, string[]> = {};
+const descriptions: Record<string, string[]> = {};
+
+for (const [categoryName, categoryItems] of categories) {
+  for (const item of categoryItems!) {
+    summaries[categoryName] = summaries[categoryName] || [];
+    descriptions[categoryName] = descriptions[categoryName] || [];
+
+    summaries[categoryName].push(
+      await container.renderToString(ExperienceSummary, { props: item })
+    );
+    descriptions[categoryName].push(
+      await container.renderToString(ExperienceDisplay, { props: item })
+    );
+  }
+}
+---
+
+<Section>
+  <div class:list={['SECTION_BODY_RESPONSIVE', 'space-y-10']}>
+    <h1
+      id="experience"
+      class:list={[
+        'scroll-mt-[--header-height]',
+        'text-4xl font-display text-center',
+        'TEXT_BOLD',
+      ]}
+    >
+      <Icon inline icon="fluent-emoji-flat:seedling" /> My Experiences
+    </h1>
+    <div class="w-full space-y-6">
+      <p
+        class:list={[
+          'text-lg md:text-xl text-center italic font-display tracking-wide',
+          'TEXT_MEDIUM',
+        ]}
+      >
+        Internships, school, projects, and more!
+      </p>
+    </div>
+  </div>
+</Section>
+<Section>
+  <div class:list={['SECTION_BODY_RESPONSIVE', 'space-y-20']}>
+    {
+      categories.map(([categoryName, categoryItems]) => (
+        <>
+          <div class="lg:hidden">
+            <ExperienceList category={categoryName} items={categoryItems!} />
+          </div>
+          <div class="hidden lg:block">
+            <ExperienceShowcase
+              client:visible
+              category={categoryName}
+              summaries={summaries[categoryName]}
+              descriptions={descriptions[categoryName]}
+            />
+          </div>
+        </>
+      ))
+    }
+  </div>
+</Section>
