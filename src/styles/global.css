@@ -48,6 +48,10 @@
   .TEXT_STATIC_BLACK {
     @apply text-zinc-900;
   }
+
+  .HOVER_DYNAMIC_BACKGROUND {
+    @apply hover:bg-black/5 dark:hover:bg-white/5;
+  }
 }
 
 @layer components {
