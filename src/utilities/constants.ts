@@ -1,5 +1,5 @@
 const BACKEND_URL: string =
-  import.meta.env.BACKEND_URL ?? 'http://localhost:4000';
+  import.meta.env.PUBLIC_BACKEND_URL ?? 'http://localhost:4000';
 
 const SOCIAL_EMAIL_URL: string = import.meta.env.SOCIAL_EMAIL_URL ?? '';
 const SOCIAL_GITHUB_URL: string = import.meta.env.SOCIAL_GITHUB_URL ?? '';
