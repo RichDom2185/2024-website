@@ -1,0 +1,109 @@
+---
+import type { Project } from '@site-types/data';
+import { getEntry } from 'astro:content';
+import ProjectDisplay from 'src/components/main/data/ProjectDisplay.astro';
+import IntroSection from 'src/components/main/pageComponents/experiments/IntroSection.astro';
+import Page from 'src/components/main/ui/Page.astro';
+import Section from 'src/components/main/ui/Section.astro';
+import Layout from 'src/layouts/MainSite.astro';
+
+const projects_2021 = await getEntry('projects', '2021');
+const projects_2022 = await getEntry('projects', '2022');
+const projects_2023 = await getEntry('projects', '2023');
+const projects_2024 = await getEntry('projects', '2024');
+
+const allProjects: Readonly<Record<string, Project[]>> = {
+  // We allow undefined technology values for now
+  // This safe to typecase for now.
+  // TODO: Investigate possibility of disallowing.
+  2021: projects_2021.data as any,
+  2022: projects_2022.data as any,
+  2023: projects_2023.data as any,
+  2024: projects_2024.data as any,
+};
+
+// TODO: Restore filtering
+const searchQuery = '';
+const filtered = !searchQuery
+  ? allProjects
+  : Object.fromEntries(
+      Object.entries(allProjects).flatMap(([year, projects]) => {
+        const filteredProjects = projects.filter(
+          (p) => true // matchesQuery(p.name, searchQuery)
+        );
+        if (!filteredProjects.length) {
+          return [];
+        }
+        return [[year, filteredProjects]];
+      })
+    );
+
+// Sort years in descending order
+const years = Object.keys(allProjects).sort((a, b) => Number(b) - Number(a));
+const sorted = years.flatMap((year) =>
+  year in filtered ? [[year, filtered[year]] as const] : []
+);
+---
+
+<Layout>
+  <Page withHeader withSidebar>
+    {/* Auto-padded against header */}
+    <div class="BACKGROUND_DYNAMIC_COLOR"></div>
+    <IntroSection />
+    <Section>
+      <div class:list={['SECTION_BODY_RESPONSIVE', 'space-y-10']}>
+        <!-- TODO: Restore filtering -->
+        <!-- <div class="w-full">
+          <input
+            type="text"
+            placeholder="Search projects..."
+            onInput={(e) => setSearchQuery(e.currentTarget.value)}
+            value={searchQuery()}
+            class={classNames(
+              "w-full",
+              "px-3 py-6",
+              "outline-none",
+              "border-b border-stone-500",
+              "dark:bg-stone-800 dark:border-stone-700",
+              // Adapted from Classes.HOVER_DYNAMIC_BACKGROUND,
+              "hover:bg-black/10 dark:hover:bg-white/10",
+              "bg-black/5 dark:bg-white/5"
+            )}
+          />
+        </div> -->
+        {
+          sorted.map(([year, projects]) => (
+            <div class="space-y-4">
+              <h2
+                class:list={[
+                  'text-3xl font-display tracking-wider',
+                  'TEXT_MEDIUM',
+                ]}
+              >
+                {year}
+              </h2>
+              <div
+                class:list={
+                  ['divide-y divide-neutral-300 dark:divide-stone-800']
+                  // "px-3 py-3",
+                  // "border rounded-lg border-dashed border-stone-500"
+                }
+              >
+                {projects.map((project) => (
+                  <div
+                    class:list={[
+                      'pt-3 pb-4 px-4', // change to px-3 if above border is used
+                      'HOVER_DYNAMIC_BACKGROUND',
+                    ]}
+                  >
+                    <ProjectDisplay {...project} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Section>
+  </Page>
+</Layout>
