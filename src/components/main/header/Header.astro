@@ -5,6 +5,11 @@ import LinkButton from '../common/LinkButton.astro';
 import Logo from '../sidebar/Logo.astro';
 
 const { pathname } = Astro.url;
+
+type Props = {
+  alwaysShowLogo?: boolean;
+};
+const { alwaysShowLogo = false } = Astro.props;
 ---
 
 <header
@@ -20,9 +25,10 @@ const { pathname } = Astro.url;
     'px-3 md:px-5',
     'py-4 text-sm font-display justify-end',
     'TEXT_MEDIUM',
+    'z-10',
   ]}
 >
-  <div class="text-xl grow flex sm:hidden">
+  <div class:list={['text-xl grow flex', !alwaysShowLogo && 'sm:hidden']}>
     <Logo />
   </div>
   <LinkButton
@@ -30,7 +36,11 @@ const { pathname } = Astro.url;
     href="/experiments"
     isActive={pathname === '/experiments'}
   />
-  <LinkButton label="Blog" href="/blog" isActive={pathname === '/blog'} />
+  <LinkButton
+    label="Blog"
+    href="/blog"
+    isActive={pathname.startsWith('/blog')}
+  />
   {/* TODO: Use target=_blank for external links */}
   <LinkButton
     label={Social.GITHUB}
