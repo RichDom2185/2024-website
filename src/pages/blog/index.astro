@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import PostListItem from 'src/components/blog/PostListItem.astro';
+import Header from 'src/components/main/header/Header.astro';
+import MainSite from 'src/layouts/MainSite.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<MainSite light>
+  <div class="BACKGROUND_DYNAMIC_COLOR TEXT_DYNAMIC_COLOR min-h-screen">
+    <Header alwaysShowLogo />
+    <main>
+      <div class="SECTION_BODY_RESPONSIVE px-5 lg:px-0 max-w-6xl">
+        <div class="space-y-4">
+          <h1 class="text-3xl font-display tracking-wider TEXT_MEDIUM">
+            📝 All Posts
+          </h1>
+          <div class="divide-y divide-neutral-300 dark:divide-stone-800">
+            {posts.map((post) => <PostListItem {...post} />)}
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</MainSite>
