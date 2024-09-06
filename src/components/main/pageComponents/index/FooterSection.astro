@@ -1,0 +1,32 @@
+---
+import { Social } from '@site-types/social';
+import { Constants } from 'src/utilities/constants';
+import ExternalLink from '../../common/ExternalLink.astro';
+---
+
+<div
+  class:list={[
+    'BACKGROUND_DYNAMIC_COLOR',
+    'text-neutral-400 dark:text-neutral-600',
+    'px-10 py-6 text-center',
+  ]}
+>
+  <p class="select-none">
+    <span class="w-full text-sm">
+      Copyright &copy; 2023-2024 Richard Dominick
+    </span>
+    <br />
+    <span>
+      <span class="w-full text-xs">
+        Built with{' '}
+        <ExternalLink to="https://astro.build">Astro</ExternalLink>{' '}
+        and{' '}
+        <ExternalLink to="https://tailwindcss.com">Tailwind</ExternalLink>. View
+        the source code on{' '}
+        <ExternalLink to={Constants.REPOSITORY_URL}
+          >{Social.GITHUB}</ExternalLink
+        >.
+      </span>
+    </span>
+  </p>
+</div>

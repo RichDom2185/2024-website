@@ -6,6 +6,8 @@ const SOCIAL_GITHUB_URL: string = import.meta.env.SOCIAL_GITHUB_URL ?? '';
 const SOCIAL_GITLAB_URL: string = import.meta.env.SOCIAL_GITLAB_URL ?? '';
 const SOCIAL_LINKEDIN_URL: string = import.meta.env.SOCIAL_LINKEDIN_URL ?? '';
 
+export const REPOSITORY_URL: string = import.meta.env.REPOSITORY_URL ?? '';
+
 export const Constants = {
   BACKEND_URL,
   social: {
@@ -14,4 +16,5 @@ export const Constants = {
     GITLAB_URL: SOCIAL_GITLAB_URL,
     LINKEDIN_URL: SOCIAL_LINKEDIN_URL,
   },
+  REPOSITORY_URL,
 } as const;
