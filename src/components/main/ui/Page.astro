@@ -3,8 +3,8 @@ import Header from '../header/Header.astro';
 import Sidebar from '../sidebar/Sidebar.astro';
 
 type Props = {
-  withSidebar: boolean;
-  withHeader: boolean;
+  withSidebar?: boolean;
+  withHeader?: boolean;
 };
 const { withSidebar = false, withHeader = false } = Astro.props;
 ---
