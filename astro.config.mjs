@@ -39,6 +39,28 @@ const autolinkOptions = {
   // properties: { ariaHidden: true, tabIndex: -1 },
 };
 
+/**
+ * @import {ShikiTransformer} from '@shikijs/core'
+ * @type {ShikiTransformer}
+ */
+const transformerWrapWithDiv = {
+  pre: (node) => {
+    const common = ['highlight', 'bg-[#f8f8f8]', 'mx-0 my-[1em]', 'rounded'];
+    node.properties.class = clsx(node.properties.class, ...common);
+    return h(
+      'div',
+      {
+        className: clsx(
+          ...common,
+          node.properties.dataLanguage &&
+            `language-${node.properties.dataLanguage}`
+        ),
+      },
+      node
+    );
+  },
+};
+
 // function remarkMeta() {
 //   return function transformer(tree) {
 //     visit(tree, 'code', (node) => {
@@ -74,6 +96,7 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark',
       },
+      transformers: [transformerWrapWithDiv],
     },
     remarkPlugins: [
       remarkMath,
