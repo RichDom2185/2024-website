@@ -68,6 +68,12 @@ export default defineConfig({
     shikiConfig: {
       // @ts-expect-error incompatible type definitions
       langs: [brainfuck, plantuml],
+      // Refer to https://shiki.style/guide/dual-themes
+      defaultColor: false,
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
     },
     remarkPlugins: [
       remarkMath,
