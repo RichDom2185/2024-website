@@ -74,7 +74,11 @@ export default defineConfig({
   site: 'https://example.com',
   integrations: [
     mdx(),
-    partytown(),
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
+      },
+    }),
     react({
       include: ['**/*.react.tsx'],
     }),

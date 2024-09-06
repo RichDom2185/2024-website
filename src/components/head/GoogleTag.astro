@@ -1,0 +1,23 @@
+---
+import { Constants } from 'src/utilities/constants';
+---
+
+{/* Google tag (gtag.js) */}
+<script
+  is:inline
+  type="text/partytown"
+  async
+  src={`https://www.googletagmanager.com/gtag/js?id=${Constants.G_MEASUREMENT_ID}`}
+></script>
+<script
+  is:inline
+  type="text/partytown"
+  define:vars={{ MID: Constants.G_MEASUREMENT_ID }}
+>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', MID);
+</script>
