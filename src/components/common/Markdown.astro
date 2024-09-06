@@ -1,8 +1,6 @@
 ---
-import rehypeStringify from 'rehype-stringify';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import { unified } from 'unified';
+import { mdToHtmlString } from 'src/utilities/markdown';
+
 type Props = {
   linkTarget?: string;
   class?: string;
@@ -11,12 +9,7 @@ type Props = {
 const { linkTarget, class: className, text } = Astro.props;
 
 const Container = className ? 'div' : Fragment;
-
-const pipeline = unified()
-  .use(remarkParse)
-  .use(remarkRehype)
-  .use(rehypeStringify);
-const html = pipeline.processSync(text);
+const html = mdToHtmlString.processSync(text);
 ---
 
 <Container class={className} set:html={html} />
