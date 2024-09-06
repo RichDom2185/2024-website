@@ -1,0 +1,116 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from 'src/components/common/Icon.astro';
+import FormattedDate from 'src/components/FormattedDate.astro';
+import Header from 'src/components/main/header/Header.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+
+import 'src/styles/code-blocks.scss';
+import 'src/styles/mainsite.css';
+import 'src/styles/shiki.scss';
+
+type Props = CollectionEntry<'blog'>;
+
+const { data, slug } = Astro.props;
+const { title, date, updated, heroImage, heroAlt, authors } = data;
+
+const prefix = '/assets/img';
+const year = date.getFullYear();
+const month = date.getMonth() + 1;
+const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
+---
+
+<html lang="en">
+  <head>
+    <!-- TODO: Use base layout -->
+    <BaseHead title={title} description="" />
+  </head>
+
+  <body class="light">
+    <Header alwaysShowLogo />
+    <!-- TODO: Back button -->
+    <!-- <div class="flex items-center justify-center">
+      <a
+        href="/blog"
+        class="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 dark:text-stone-300 px-2 py-1 rounded-lg"
+      >
+        <Icon inline icon="feather:arrow-left" />
+        Back to Blog
+      </a>
+    </div> -->
+    <main>
+      <div
+        class:list={[
+          'post',
+          'max-w-4xl mx-auto px-6 lg:px-0 space-y-2 TEXT_NORMAL',
+        ]}
+      >
+        {
+          imgPath && (
+            <div
+              class="mt-[1em] bg-cover bg-center rounded-[0.3em] overflow-hidden"
+              style={{ backgroundImage: `url("${imgPath}")` }}
+            >
+              <div class="min-w-full md:min-w-max backdrop-blur-3xl">
+                <img
+                  class="rounded-md mx-auto aspect-[2.4/1] md:aspect-[2/1] object-cover select-none"
+                  src={imgPath}
+                  alt={heroAlt || 'Cover Image'}
+                />
+              </div>
+            </div>
+          )
+        }
+        <h1 class="text-2xl md:text-3xl lg:text-4xl TEXT_BOLD !my-7">
+          {title}
+        </h1>
+        <span class="italic uppercase">
+          <FormattedDate withDay date={date} />
+        </span>
+        <div class="flex flex-wrap gap-2 items-center">
+          <span>Author{authors.length !== 1 && 's'}:</span>
+          <ul class:list={['post-author', 'flex gap-2 flex-wrap']}>
+            {
+              authors.map((author) => (
+                <li class="bg-gray-100 dark:bg-gray-700 dark:text-stone-300 px-2 py-0.5 rounded-lg">
+                  <Icon inline icon="emojione:bust-in-silhouette" />
+                  {author}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <hr class="!my-4" />
+        {
+          updated && updated.getTime() !== date.getTime() && (
+            <>
+              <span class="italic text-xs block text-stone-600 uppercase">
+                Last Updated on
+                <span class="">
+                  {updated.toLocaleDateString('en-UK', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </span>
+              </span>
+              <hr class="!my-4" />
+            </>
+          )
+        }
+        <article
+          class:list={[
+            'space-y-4 leading-relaxed text-justify',
+            //
+            '[&_code]:text-[0.8em]',
+          ]}
+        >
+          <slot />
+        </article>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

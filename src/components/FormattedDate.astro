@@ -1,13 +1,15 @@
 ---
 type Props = {
   date: Date;
+  withDay?: boolean;
 };
-const { date } = Astro.props;
+const { date, withDay = false } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}
   >{
     date.toLocaleDateString('en-UK', {
+      ...(withDay && { weekday: 'long' }),
       day: 'numeric',
       month: 'short',
       year: 'numeric',
