@@ -103,8 +103,9 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
         <article
           class:list={[
             'space-y-4 leading-relaxed text-justify',
-            //
-            '[&_code]:text-[0.8em]',
+            '[&_code]:text-[0.9em]',
+            '[&_pre>code]:text-[0.875em]',
+            '[&_:is(h1,h2,h3,h4,h5,h6)_code]:text-[length:unset]',
           ]}
         >
           <slot />
