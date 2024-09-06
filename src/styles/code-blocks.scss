@@ -44,6 +44,32 @@
   content: "Brainfuck";
 }
 
+.highlight.language-html::after {
+  content: "HTML";
+}
+
+.highlight.language-java::after {
+  content: "Java";
+}
+
+.highlight.language-javascript::after,
+.highlight.language-js::after {
+  content: "JavaScript";
+}
+
+.highlight.language-markdown::after {
+  content: "Markdown";
+}
+
+.highlight.language-plantuml::after {
+  content: "PlantUML";
+}
+
 .highlight.language-python::after {
   content: "Python";
+}
+
+.highlight.language-typescript::after,
+.highlight.language-ts::after {
+  content: "TypeScript";
 }
