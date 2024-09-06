@@ -3,6 +3,12 @@ import { ViewTransitions } from 'astro:transitions';
 import { SITE_TITLE } from 'src/consts';
 import 'src/styles/global.css';
 import 'src/styles/mainsite.css';
+
+type Props = {
+  light?: boolean;
+  dark?: boolean;
+};
+const { light = false, dark = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +32,7 @@ import 'src/styles/mainsite.css';
       src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
     ></script>
   </head>
-  <body>
+  <body class:list={[light && 'light', dark && 'dark']}>
     <div id="root"><slot /></div>
   </body>
 </html>
