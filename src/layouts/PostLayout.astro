@@ -3,8 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 import Icon from 'src/components/common/Icon.astro';
 import FormattedDate from 'src/components/FormattedDate.astro';
 import Header from 'src/components/main/header/Header.astro';
-import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import MainLayout from './MainLayout.astro';
 
 import 'src/styles/code-blocks.scss';
 import 'src/styles/mainsite.css';
@@ -21,13 +21,8 @@ const month = date.getMonth() + 1;
 const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
 ---
 
-<html lang="en">
-  <head>
-    <!-- TODO: Use base layout -->
-    <BaseHead title={title} description="" />
-  </head>
-
-  <body class="light">
+<MainLayout light>
+  <div class="BACKGROUND_DYNAMIC_COLOR TEXT_DYNAMIC_COLOR">
     <Header alwaysShowLogo />
     <!-- TODO: Back button -->
     <!-- <div class="flex items-center justify-center">
@@ -115,5 +110,5 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
       </div>
     </main>
     <Footer />
-  </body>
-</html>
+  </div>
+</MainLayout>
