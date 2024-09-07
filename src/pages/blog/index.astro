@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import PostListItem from 'src/components/blog/PostListItem.astro';
 import Icon from 'src/components/common/Icon.astro';
+import Footer from 'src/components/Footer.astro';
 import Header from 'src/components/main/header/Header.astro';
 import MainLayout from 'src/layouts/MainLayout.astro';
 
@@ -10,7 +11,7 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<MainLayout light>
+<MainLayout light title="Blog">
   <div class="BACKGROUND_DYNAMIC_COLOR TEXT_DYNAMIC_COLOR min-h-screen">
     <Header alwaysShowLogo />
     <main>
@@ -19,11 +20,17 @@ const posts = (await getCollection('blog')).sort(
           <h1 class="text-3xl font-display TEXT_SEMIBOLD">
             <Icon inline icon="fxemoji:memo" /> All Posts
           </h1>
+          <p>
+            <span class="italic text-neutral-300 inline-block">
+              Dark mode coming soon!
+            </span>
+          </p>
           <div class="divide-y divide-neutral-300 dark:divide-stone-800">
             {posts.map((post) => <PostListItem {...post} />)}
           </div>
         </div>
       </div>
     </main>
+    <Footer />
   </div>
 </MainLayout>
