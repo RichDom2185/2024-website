@@ -1,18 +1,15 @@
 ---
+import dayjs from 'dayjs';
+
 type Props = {
   date: Date;
   withDay?: boolean;
 };
 const { date, withDay = false } = Astro.props;
+
+const formattedDate = dayjs(date).format(
+  withDay ? 'dddd, D MMM YYYY' : 'D MMM YYYY'
+);
 ---
 
-<time datetime={date.toISOString()}
-  >{
-    date.toLocaleDateString('en-UK', {
-      ...(withDay && { weekday: 'long' }),
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    })
-  }</time
->
+<time datetime={date.toISOString()}>{formattedDate}</time>

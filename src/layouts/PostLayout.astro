@@ -92,14 +92,7 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
             <>
               <span class="italic text-xs block text-stone-600 uppercase">
                 Last Updated on
-                <span class="">
-                  {updated.toLocaleDateString('en-UK', {
-                    weekday: 'long',
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
-                </span>
+                <FormattedDate withDay date={updated} />
               </span>
               <hr class="!my-4" />
             </>
