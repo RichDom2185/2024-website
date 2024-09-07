@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import solidJs from '@astrojs/solid-js';
 import tailwind from '@astrojs/tailwind';
+import { transformerNotationErrorLevel } from '@shikijs/transformers';
 import { defineConfig } from 'astro/config';
 import clsx from 'clsx';
 import { h } from 'hastscript';
@@ -102,7 +103,12 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark',
       },
-      transformers: [transformerWrapWithDiv],
+      transformers: [
+        // @ts-expect-error incompatible type definitoion
+        transformerNotationErrorLevel(),
+        // @ts-expect-error incompatible type definitoion
+        transformerWrapWithDiv,
+      ],
     },
     remarkPlugins: [
       remarkMath,

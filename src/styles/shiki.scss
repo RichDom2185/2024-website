@@ -34,3 +34,8 @@
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
+
+// TODO: Support dark mode
+span.error {
+  @apply bg-red-100 inline-block -mx-1 -my-5 px-1 py-0.5 rounded-sm;
+}

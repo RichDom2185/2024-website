@@ -30,6 +30,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@shikijs/transformers": "^1.16.2",
     "@types/bun": "^1.1.6",
     "clsx": "^2.1.1",
     "hastscript": "^9.0.0",
