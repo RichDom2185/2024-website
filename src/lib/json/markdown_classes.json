@@ -40,5 +40,12 @@
     "object-contain"
   ],
   "pre": ["overflow-x-auto", "px-6 py-4"],
-  ":not(pre)>code": ["bg-gray-200", "px-1 py-0.5", "rounded-sm"]
+  ":not(pre)>code": ["bg-gray-200", "px-1 py-0.5", "rounded-sm"],
+  "blockquote": [
+    "space-y-4",
+    "pl-4",
+    "border-l-4",
+    "border-dashed",
+    "BORDER_DYNAMIC_COLOR"
+  ]
 }
