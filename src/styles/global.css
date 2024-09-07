@@ -37,6 +37,10 @@
     @apply font-medium dark:font-normal;
   }
 
+  .TEXT_SEMIBOLD {
+    @apply font-semibold dark:font-medium;
+  }
+
   .BACKGROUND_DYNAMIC_COLOR {
     @apply bg-white dark:bg-zinc-900;
   }
