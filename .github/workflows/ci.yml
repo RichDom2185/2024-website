@@ -1,0 +1,33 @@
+name: Run CI
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          # Match with .tool-versions file
+          bun-version: '1.1.8'
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: bun install
+      - name: Run checks
+        run: bun check
+        env:
+          PUBLIC_BACKEND_URL: ${{ secrets.PUBLIC_BACKEND_URL }}
+          SOCIAL_GITHUB_URL: ${{ secrets.SOCIAL_GITHUB_URL }}
+          SOCIAL_GITLAB_URL: ${{ secrets.SOCIAL_GITLAB_URL }}
+          SOCIAL_LINKEDIN_URL: ${{ secrets.SOCIAL_LINKEDIN_URL }}
+          SOCIAL_EMAIL_URL: ${{ secrets.SOCIAL_EMAIL_URL }}
+          REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
+          G_MEASUREMENT_ID: ${{ secrets.G_MEASUREMENT_ID }}
