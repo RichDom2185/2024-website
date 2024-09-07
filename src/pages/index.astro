@@ -5,10 +5,10 @@ import ExperienceSection from 'src/components/main/pageComponents/index/Experien
 import FooterSection from 'src/components/main/pageComponents/index/FooterSection.astro';
 import WelcomeSection from 'src/components/main/pageComponents/index/WelcomeSection.astro';
 import Page from 'src/components/main/ui/Page.astro';
-import Layout from 'src/layouts/MainSite.astro';
+import MainLayout from 'src/layouts/MainLayout.astro';
 ---
 
-<Layout>
+<MainLayout>
   <Page withHeader withSidebar>
     <WelcomeSection />
     <AboutSection />
@@ -16,4 +16,4 @@ import Layout from 'src/layouts/MainSite.astro';
     <ContactSection />
     <FooterSection />
   </Page>
-</Layout>
+</MainLayout>

@@ -5,7 +5,7 @@ import ProjectDisplay from 'src/components/main/data/ProjectDisplay.astro';
 import IntroSection from 'src/components/main/pageComponents/experiments/IntroSection.astro';
 import Page from 'src/components/main/ui/Page.astro';
 import Section from 'src/components/main/ui/Section.astro';
-import Layout from 'src/layouts/MainSite.astro';
+import MainLayout from 'src/layouts/MainLayout.astro';
 
 const projects_2021 = await getEntry('projects', '2021');
 const projects_2022 = await getEntry('projects', '2022');
@@ -45,7 +45,7 @@ const sorted = years.flatMap((year) =>
 );
 ---
 
-<Layout>
+<MainLayout>
   <Page withHeader withSidebar>
     {/* Auto-padded against header */}
     <div class="BACKGROUND_DYNAMIC_COLOR"></div>
@@ -106,4 +106,4 @@ const sorted = years.flatMap((year) =>
       </div>
     </Section>
   </Page>
-</Layout>
+</MainLayout>
