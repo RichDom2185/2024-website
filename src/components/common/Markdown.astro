@@ -1,5 +1,5 @@
 ---
-import { mdToHtmlString } from 'src/utilities/markdown';
+import { mdToHtmlString, type LinkOptions } from 'src/utilities/markdown';
 
 type Props = {
   linkTarget?: string;
@@ -9,7 +9,8 @@ type Props = {
 const { linkTarget, class: className, text } = Astro.props;
 
 const Container = className ? 'div' : Fragment;
-const html = mdToHtmlString.processSync(text);
+const linkOptions: LinkOptions = { target: linkTarget, noopener: true };
+const html = mdToHtmlString(linkOptions).processSync(text);
 ---
 
 <Container class={className} set:html={html} />
