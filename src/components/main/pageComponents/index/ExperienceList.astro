@@ -20,7 +20,7 @@ const { category, items } = Astro.props;
   </h2>
   <div class="space-y-1">
     {
-      items.map((experience, i) => (
+      items.map((experience) => (
         <div class="w-full px-6 py-4 bg-stone-500 bg-opacity-5">
           <ExperienceDisplay {...experience} />
         </div>
