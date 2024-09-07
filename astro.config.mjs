@@ -20,7 +20,11 @@ import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
 import { SITE_BASE_URL } from './src/consts';
 import { brainfuck, markdownClasses, plantuml } from './src/lib/json';
-import { openExternalLinksInNewTab } from './src/utilities/markdown';
+import {
+  openExternalLinksInNewTab,
+  unwrapTopLevelDiv,
+  wrapWithTopLevelDiv,
+} from './src/utilities/markdown';
 
 /**
  * @import {Options as AutolinkOptions} from 'rehype-autolink-headings';
@@ -63,14 +67,6 @@ const transformerWrapWithDiv = {
     );
   },
 };
-
-// function remarkMeta() {
-//   return function transformer(tree) {
-//     visit(tree, 'code', (node) => {
-//       console.log(node.meta);
-//     });
-//   };
-// }
 
 // https://astro.build/config
 export default defineConfig({
@@ -122,7 +118,11 @@ export default defineConfig({
       // @ts-expect-error incompatible type definitoion
       rehypeAccessibleEmojis,
       rehypeHeadingIds,
+      // TODO: Come up with a less hacky fix
+      // to target top-level elements only
+      [wrapWithTopLevelDiv, 'post-body'],
       [rehypeClassNames, markdownClasses],
+      [unwrapTopLevelDiv, 'post-body'],
       // Ordering matters - apply classes first
       // Before adding the custom link styling
       [rehypeAutolinkHeadings, autolinkOptions],

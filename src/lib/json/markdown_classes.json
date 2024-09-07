@@ -1,6 +1,6 @@
 {
-  "*": "scroll-mt-[--header-height]",
-  "*:not(h1, h2, h3, h4, h5, h6)": "TEXT_NORMAL",
+  ".post-body > *": "scroll-mt-[--header-height]",
+  ".post-body > *:not(h1, h2, h3, h4, h5, h6)": "TEXT_NORMAL",
   "h1, h2, h3, h4, h5, h6": ["font-display", "text-left", "group"],
   "h1, h2, h3": [
     "TEXT_MEDIUM",
