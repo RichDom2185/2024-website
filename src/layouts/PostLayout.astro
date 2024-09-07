@@ -3,17 +3,19 @@ import type { CollectionEntry } from 'astro:content';
 import Icon from 'src/components/common/Icon.astro';
 import FormattedDate from 'src/components/FormattedDate.astro';
 import Header from 'src/components/main/header/Header.astro';
+import { SITE_BLOG_TITLE } from 'src/consts';
+import { mdToExcerpt } from 'src/utilities/markdown';
 import Footer from '../components/Footer.astro';
 import MainLayout from './MainLayout.astro';
 
 import 'src/styles/code-blocks.scss';
-import 'src/styles/mainsite.css';
 import 'src/styles/shiki.scss';
 
 type Props = CollectionEntry<'blog'>;
-
-const { data, slug } = Astro.props;
+const { data, slug, body } = Astro.props;
 const { title, date, updated, heroImage, heroAlt, authors } = data;
+
+const excerpt = mdToExcerpt.processSync(body).value.toString();
 
 const prefix = '/assets/img';
 const year = date.getFullYear();
@@ -21,10 +23,15 @@ const month = date.getMonth() + 1;
 const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
 ---
 
-<MainLayout light>
+<MainLayout
+  light
+  title={() => `${title} | ${SITE_BLOG_TITLE}`}
+  description={excerpt}
+>
   <div class="BACKGROUND_DYNAMIC_COLOR TEXT_DYNAMIC_COLOR">
     <Header alwaysShowLogo />
-    <!-- TODO: Back button -->
+    {
+      /* <!-- TODO: Back button -->
     <!-- <div class="flex items-center justify-center">
       <a
         href="/blog"
@@ -33,7 +40,8 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
         <Icon inline icon="feather:arrow-left" />
         Back to Blog
       </a>
-    </div> -->
+    </div> --> */
+    }
     <main>
       <div
         class:list={[
