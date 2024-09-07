@@ -3,18 +3,22 @@ import type { CollectionEntry } from 'astro:content';
 import Icon from 'src/components/common/Icon.astro';
 import FormattedDate from 'src/components/FormattedDate.astro';
 import Header from 'src/components/main/header/Header.astro';
-import { SITE_BLOG_TITLE } from 'src/consts';
+import { SITE_BASE_URL, SITE_BLOG_TITLE } from 'src/consts';
 import { mdToExcerpt } from 'src/utilities/markdown';
 import Footer from '../components/Footer.astro';
 import MainLayout from './MainLayout.astro';
 
+import ShareButton from 'src/components/blog/ShareButton.astro';
 import 'src/styles/code-blocks.scss';
 import 'src/styles/shiki.scss';
+import { getPostUrl } from 'src/utilities/content';
 
 type Props = CollectionEntry<'blog'>;
-const { data, slug, body } = Astro.props;
+const post = Astro.props;
+const { data, slug, body } = post;
 const { title, date, updated, heroImage, heroAlt, authors } = data;
 
+const url = SITE_BASE_URL + getPostUrl(post);
 const excerpt = mdToExcerpt.processSync(body).value.toString();
 
 const prefix = '/assets/img';
@@ -86,6 +90,8 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
             }
           </ul>
         </div>
+        <hr class="!my-4" />
+        <ShareButton title={title} url={url} />
         <hr class="!my-4" />
         {
           updated && updated.getTime() !== date.getTime() && (
