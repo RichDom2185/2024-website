@@ -19,6 +19,7 @@ import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
 import { SITE_BASE_URL } from './src/consts';
 import { brainfuck, markdownClasses, plantuml } from './src/lib/json';
+import { openExternalLinksInNewTab } from './src/utilities/markdown';
 
 /**
  * @import {Options as AutolinkOptions} from 'rehype-autolink-headings';
@@ -110,6 +111,7 @@ export default defineConfig({
       remarkGemoji,
     ],
     rehypePlugins: [
+      openExternalLinksInNewTab,
       rehypeMathjax,
       // @ts-expect-error incompatible type definitoion
       rehypeAccessibleEmojis,

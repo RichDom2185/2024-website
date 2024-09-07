@@ -38,6 +38,23 @@ function setLinkAttrs(options: LinkOptions = {}) {
   };
 }
 
+export function openExternalLinksInNewTab() {
+  return function transformer(tree: HastRoot) {
+    visit(tree, 'element', (node) => {
+      if (node.tagName !== 'a') {
+        return;
+      }
+      const href = node.properties.href as string | null | undefined;
+      const isExternal = href?.startsWith('http');
+      if (isExternal) {
+        node.properties.target = '_blank';
+        // TODO: Double check noreferrer
+        node.properties.rel = 'noopener noreferrer';
+      }
+    });
+  };
+}
+
 export const mdToHtmlString = (linkOptions: LinkOptions) =>
   unified()
     .use(remarkParse)
