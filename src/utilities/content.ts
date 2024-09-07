@@ -1,6 +1,6 @@
 import type { CollectionEntry } from 'astro:content';
 
-type BlogPost = CollectionEntry<'blog'>;
+export type BlogPost = CollectionEntry<'blog'>;
 
 export const getPostUrl = (post: BlogPost) => {
   const year = post.data.date.getFullYear().toString();

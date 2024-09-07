@@ -17,6 +17,7 @@ import remarkGemoji from 'remark-gemoji';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import { remarkTruncateLinks } from 'remark-truncate-links';
+import { SITE_BASE_URL } from './src/consts';
 import { brainfuck, markdownClasses, plantuml } from './src/lib/json';
 
 /**
@@ -71,7 +72,7 @@ const transformerWrapWithDiv = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: SITE_BASE_URL,
   integrations: [
     mdx(),
     partytown({
