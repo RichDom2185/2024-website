@@ -2,9 +2,34 @@
 type Props = {
   to: string;
   hoverClass?: string;
-  // TODO: Configure rel via props
+  // Link target and rel attributes
+  sameWindow?: boolean;
+  withopener?: boolean;
+  noreferrer?: boolean;
+  nofollow?: boolean;
 };
 const { to, hoverClass = '' } = Astro.props;
+const {
+  // Default to opening in a new window
+  sameWindow = false,
+  // Default to add noopener
+  withopener = false,
+  noreferrer = false,
+  nofollow = false,
+} = Astro.props;
+
+const rel = [
+  !withopener && 'noopener',
+  noreferrer && 'noreferrer',
+  nofollow && 'nofollow',
+]
+  .filter(Boolean)
+  .join(' ');
+
+const linkAttrs = {
+  ...(!sameWindow && { target: '_blank' }),
+  ...(rel && { rel }),
+};
 ---
 
 <a
@@ -12,8 +37,7 @@ const { to, hoverClass = '' } = Astro.props;
     hoverClass || ['hover:text-blue-600', 'dark:hover:text-blue-300'],
   ]}
   href={to}
-  target="_blank"
-  rel="noopener noreferrer"
+  {...linkAttrs}
   ><span
     class="underline decoration-dotted hover:decoration-solid underline-offset-4"
     ><slot /></span

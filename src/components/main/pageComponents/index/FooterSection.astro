@@ -19,11 +19,14 @@ import ExternalLink from '../../common/ExternalLink.astro';
     <span>
       <span class="w-full text-xs">
         Built with{' '}
-        <ExternalLink to="https://astro.build">Astro</ExternalLink>{' '}
+        <ExternalLink noreferrer nofollow to="https://astro.build"
+          >Astro</ExternalLink
+        >{' '}
         and{' '}
-        <ExternalLink to="https://tailwindcss.com">Tailwind</ExternalLink>. View
-        the source code on{' '}
-        <ExternalLink to={Constants.REPOSITORY_URL}
+        <ExternalLink noreferrer nofollow to="https://tailwindcss.com"
+          >Tailwind</ExternalLink
+        >. View the source code on{' '}
+        <ExternalLink noreferrer to={Constants.REPOSITORY_URL}
           >{Social.GITHUB}</ExternalLink
         >.
       </span>
