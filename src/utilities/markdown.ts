@@ -65,9 +65,25 @@ export const mdToHtmlString = (linkOptions: LinkOptions) =>
 function getFirstParagraph() {
   return function transformer(tree: MdastRoot) {
     visit(tree, 'root', (node) => {
-      node.children = node.children.filter(
-        (child) => child.type === 'paragraph'
-      );
+      node.children = node.children
+        .filter((child) => child.type === 'paragraph')
+        .filter((child) => child.children.some((c) => c.type === 'text'));
+
+      node.children.forEach((p) => {
+        // Guard clause, for type inference
+        if (p.type !== 'paragraph') {
+          return;
+        }
+
+        // Flatten links in paragraphs
+        p.children = p.children.flatMap((child) => {
+          if (child.type !== 'link') {
+            return [child];
+          }
+          return child.children;
+        });
+      });
+
       node.children.length =
         node.children.length > 1 ? 1 : node.children.length;
     });
