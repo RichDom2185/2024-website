@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import GoogleTag from 'src/components/head/GoogleTag.astro';
 import { SITE_TITLE } from 'src/consts';
 import 'src/styles/global.css';
 import 'src/styles/mainsite.css';
@@ -15,7 +16,10 @@ const { light = false, dark = false } = Astro.props;
 <html lang="en" transition:animate="none">
   <head>
     <ViewTransitions />
+    <GoogleTag />
     {/* TODO: Deduplicate with BaseHead */}
+    {/* TODO: meta canonical */}
+    {/* TODO: viewtransitions bug with click listener */}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
