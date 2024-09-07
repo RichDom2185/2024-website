@@ -2,6 +2,9 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import FontMeta from './head/FontMeta.astro';
+import GlobalMeta from './head/GlobalMeta.astro';
+import IconifyMeta from './head/IconifyMeta.astro';
 
 interface Props {
   title: string;
@@ -14,23 +17,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
 
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="generator" content={Astro.generator} />
-
-<!-- Iconify icons -->
-<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
-></script>
-
-<!-- Font preloads -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-  rel="stylesheet"
-/>
+<GlobalMeta />
+<IconifyMeta />
+<FontMeta />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
