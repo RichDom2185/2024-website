@@ -1,19 +1,10 @@
-// @ts-check
-import rss from '@astrojs/rss';
+import rss, { type RSSFeedItem } from '@astrojs/rss';
+import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
-import { getPostUrl } from 'src/utilities/content';
+import { type BlogPost, getPostUrl } from 'src/utilities/content';
 import { SITE_CANONICAL_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
-/**
- * @import { APIContext } from 'astro';
- * @import { RSSFeedItem } from '@astrojs/rss';
- * @import { BlogPost } from 'src/utilities/content';
- */
-
-/**
- * @param {APIContext} context
- */
-export async function GET(context) {
+export async function GET(context: APIContext) {
   const posts = await getCollection('blog');
   return rss({
     title: SITE_TITLE,
@@ -23,12 +14,7 @@ export async function GET(context) {
   });
 }
 
-/**
- *
- * @param {BlogPost} post
- * @returns {RSSFeedItem}
- */
-const getXmlFromPostData = (post) => {
+const getXmlFromPostData = (post: BlogPost): RSSFeedItem => {
   return {
     title: post.data.title,
     pubDate: post.data.date,
