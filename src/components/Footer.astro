@@ -7,10 +7,10 @@ const today = new Date();
 ---
 
 {/* TODO: Deduplicate with footer section */}
-<footer>
+<footer class="text-center px-4 pt-8 pb-12 md:pb-24">
   &copy; {today.getFullYear()}
   {SITE_AUTHOR}. All rights reserved.
-  <div class="social-links">
+  <div class="flex justify-center gap-4 mt-4">
     <a href={Constants.social.LINKEDIN_URL} target="_blank">
       <span class="sr-only">Connect with me on LinkedIn</span>
       <Icon icon="cib:linkedin" class="text-[2rem]" />
@@ -25,15 +25,3 @@ const today = new Date();
     </a>
   </div>
 </footer>
-<style>
-  footer {
-    padding: 2em 1em 6em 1em;
-    text-align: center;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-  }
-</style>
