@@ -1,0 +1,59 @@
+---
+import { Social } from '@site-types/social';
+import { _Object } from 'src/utilities/object';
+import Icon from '../common/Icon.astro';
+import Tooltip from '../main/common/Tooltip.astro';
+import SocialLink from '../main/sidebar/SocialLink.astro';
+
+type Props = {
+  title: string;
+  url: string;
+};
+const { title: rawTitle, url: rawUrl } = Astro.props;
+const url = encodeURIComponent(rawUrl);
+const title = encodeURIComponent(`Check out this post: ${rawTitle}`);
+
+const shareUrls: Partial<Record<Social, string>> = {
+  [Social.TELEGRAM]: `https://t.me/share/url?text=${title}&url=${url}`,
+  [Social.WHATSAPP]: `https://api.whatsapp.com/send/?text=${url}&type=custom_url&app_absent=0`,
+  [Social.LINKEDIN]: `https://www.linkedin.com/sharing/share-offsite?url=${url}`,
+  [Social.FACEBOOK]: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+  [Social.TWITTER]: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+  // TODO: Reddit, Email, LINE, Pinterest
+};
+---
+
+<div class="flex">
+  <div
+    class:list={[
+      'flex justify-start items-center group/share',
+      'gap-x-0 hover:gap-x-3 hover:md:gap-x-4',
+    ]}
+  >
+    <span class="opacity-60 group-hover/share:opacity-100">
+      <Icon inline icon="heroicons:share-16-solid" />
+      <span>Share</span>
+    </span>
+    {
+      _Object.entries(shareUrls).map(([social, shareUrl]) => (
+        <button
+          class:list={[
+            'overflow-x-hidden group-hover/share:overflow-x-visible',
+            'transition-all w-0 group-hover/share:w-auto',
+            'opacity-0 group-hover/share:opacity-100',
+            'text-2xl',
+            'relative group',
+          ]}
+        >
+          <SocialLink
+            inline
+            type={social}
+            to={shareUrl}
+            alt={`Share this post on ${social}`}
+          />
+          <Tooltip position="bottom">{social}</Tooltip>
+        </button>
+      ))
+    }
+  </div>
+</div>

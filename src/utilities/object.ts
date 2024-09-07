@@ -7,7 +7,7 @@ const values = <T>(obj: Record<any, T>) => {
 };
 
 const entries = <K extends string | number | symbol, V>(
-  obj: Record<K, V>
+  obj: Partial<Record<K, V>>
 ): [K, V][] => {
   return Object.entries(obj) as [K, V][];
 };
