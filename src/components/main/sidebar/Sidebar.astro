@@ -34,9 +34,25 @@ const { hideOnMobile = false } = Astro.props;
     >
       Contact me:
     </span>
-    <SocialLink type={Social.GITHUB} to={Constants.social.GITHUB_URL} />
-    <SocialLink type={Social.GITLAB} to={Constants.social.GITLAB_URL} />
-    <SocialLink type={Social.LINKEDIN} to={Constants.social.LINKEDIN_URL} />
-    <SocialLink type={Social.EMAIL} to={Constants.social.EMAIL_URL} />
+    <SocialLink
+      type={Social.GITHUB}
+      to={Constants.social.GITHUB_URL}
+      alt="Go to my GitHub profile"
+    />
+    <SocialLink
+      type={Social.GITLAB}
+      to={Constants.social.GITLAB_URL}
+      alt="Go to my GitLab profile"
+    />
+    <SocialLink
+      type={Social.LINKEDIN}
+      to={Constants.social.LINKEDIN_URL}
+      alt="Connect with me on LinkedIn"
+    />
+    <SocialLink
+      type={Social.EMAIL}
+      to={Constants.social.EMAIL_URL}
+      alt="Send me an email"
+    />
   </div>
 </div>

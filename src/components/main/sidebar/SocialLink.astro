@@ -7,13 +7,13 @@ import {
 import Icon from 'src/components/common/Icon.astro';
 import ExternalLink from '../common/ExternalLink.astro';
 
-// TODO: Add alt for accessibility
 type Props = {
   type: Social;
   to: string;
   inline?: boolean;
+  alt?: string;
 };
-const { type, to, inline = false } = Astro.props;
+const { type, to, inline = false, alt } = Astro.props;
 ---
 
 <ExternalLink
@@ -22,5 +22,6 @@ const { type, to, inline = false } = Astro.props;
   to={to}
   hoverClass={socialToColorClassMap[type]}
 >
+  {alt && <span class="sr-only">{alt}</span>}
   <Icon inline={inline} icon={socialToIconMap[type]} />
 </ExternalLink>
