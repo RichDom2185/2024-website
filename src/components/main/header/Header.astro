@@ -41,11 +41,11 @@ const { alwaysShowLogo = false } = Astro.props;
     href="/blog"
     isActive={pathname.startsWith('/blog')}
   />
-  {/* TODO: Use target=_blank for external links */}
   <LinkButton
     label={Social.GITHUB}
     href={Constants.social.GITHUB_URL}
     rightIcon="heroicons-outline:external-link"
+    targetBlank
   />
   {/* TODO: Restore button */}
   <!-- <div class="relative">

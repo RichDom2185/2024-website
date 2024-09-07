@@ -7,9 +7,31 @@ type Props = {
   isActive?: boolean;
   leftIcon?: string;
   rightIcon?: string;
-  // TODO: Configure rel via props
+  targetBlank?: boolean;
+  noopener?: boolean;
+  noreferrer?: boolean;
+  nofollow?: boolean;
 };
 const { label, href, isActive, leftIcon, rightIcon } = Astro.props;
+const {
+  targetBlank,
+  noopener = false,
+  noreferrer = false,
+  nofollow = false,
+} = Astro.props;
+
+const rel = [
+  noopener && 'noopener',
+  noreferrer && 'noreferrer',
+  nofollow && 'nofollow',
+]
+  .filter(Boolean)
+  .join(' ');
+
+const linkAttrs = {
+  ...(targetBlank && { target: '_blank' }),
+  ...(rel && { rel }),
+};
 ---
 
 <a
@@ -28,6 +50,7 @@ const { label, href, isActive, leftIcon, rightIcon } = Astro.props;
   ]}
   href={href}
   title={label}
+  {...linkAttrs}
 >
   {leftIcon && <Icon inline icon={leftIcon} />}
   {label}
