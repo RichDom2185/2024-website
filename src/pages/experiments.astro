@@ -45,14 +45,15 @@ const sorted = years.flatMap((year) =>
 );
 ---
 
-<MainLayout>
+<MainLayout title="Experiments">
   <Page withHeader withSidebar>
     {/* Auto-padded against header */}
     <div class="BACKGROUND_DYNAMIC_COLOR"></div>
     <IntroSection />
     <Section>
       <div class:list={['SECTION_BODY_RESPONSIVE', 'space-y-10']}>
-        <!-- TODO: Restore filtering -->
+        {
+          /* <!-- TODO: Restore filtering -->
         <!-- <div class="w-full">
           <input
             type="text"
@@ -70,7 +71,8 @@ const sorted = years.flatMap((year) =>
               "bg-black/5 dark:bg-white/5"
             )}
           />
-        </div> -->
+        </div> --> */
+        }
         {
           sorted.map(([year, projects]) => (
             <div class="space-y-4">
