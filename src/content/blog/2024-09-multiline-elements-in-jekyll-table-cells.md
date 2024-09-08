@@ -1,6 +1,6 @@
 ---
 slug: create-lists-and-multiline-elements-inside-markdown-tables
-title: How to Create Lists and Other Multiline Elements inside Markdown Tables using Jekyll
+title: How to Create Multiline Lists and Elements in Markdown Tables using Jekyll
 date: 2024-09-08 23:00 +0800
 authors:
   - Richard Dominick
