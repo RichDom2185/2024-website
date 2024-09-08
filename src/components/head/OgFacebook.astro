@@ -1,0 +1,16 @@
+---
+// Open Graph / Facebook
+
+type Props = {
+  title: string;
+  description: string;
+  image?: string;
+};
+const { title, description, image } = Astro.props;
+---
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{image && <meta property="og:image" content={image} />}

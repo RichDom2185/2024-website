@@ -4,6 +4,8 @@ import FontMeta from 'src/components/head/FontMeta.astro';
 import GlobalMeta from 'src/components/head/GlobalMeta.astro';
 import GoogleTag from 'src/components/head/GoogleTag.astro';
 import IconifyMeta from 'src/components/head/IconifyMeta.astro';
+import OgFacebook from 'src/components/head/OgFacebook.astro';
+import OgTwitter from 'src/components/head/OgTwitter.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from 'src/consts';
 
 import 'src/styles/global.css';
@@ -15,9 +17,10 @@ type Props = {
   // Content-related properties
   title?: string | ((siteTitle: string) => string);
   description?: string;
+  image?: string;
 };
 const { light = false, dark = false } = Astro.props;
-const { title: rawTitle, description = SITE_DESCRIPTION } = Astro.props;
+const { title: rawTitle, description = SITE_DESCRIPTION, image } = Astro.props;
 
 const title =
   rawTitle === undefined
@@ -42,7 +45,8 @@ const title =
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    {/* TODO: Open Graph tags */}
+    <OgFacebook title={title} description={description} image={image} />
+    <OgTwitter title={title} description={description} image={image} />
   </head>
   <body class:list={[light && 'light', dark && 'dark']}>
     <div id="root"><slot /></div>
