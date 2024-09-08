@@ -57,6 +57,10 @@
   content: "JavaScript";
 }
 
+.highlight.language-liquid::after {
+  content: "Liquid";
+}
+
 .highlight.language-markdown::after {
   content: "Markdown";
 }
