@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import satori from 'satori';
+import sharp from 'sharp';
 import type { BlogPost } from 'src/utilities/content';
 import { createNodes, getFont } from 'src/utilities/og';
 
@@ -31,8 +32,9 @@ export const GET: APIRoute = async ({ props }) => {
       { name: 'Plus Jakarta Sans', data: fontBold!, weight: 700 },
     ],
   });
-  return new Response(svg, {
+  const png = await sharp(Buffer.from(svg)).png().toBuffer();
+  return new Response(png, {
     status: 200,
-    headers: { 'Content-Type': 'image/svg' },
+    headers: { 'Content-Type': 'image/png' },
   });
 };
