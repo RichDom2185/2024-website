@@ -10,5 +10,8 @@
       "tr",
       "td"
     ]
+  },
+  "no-trailing-punctuation": {
+    "punctuation": ".,;:"
   }
 }
