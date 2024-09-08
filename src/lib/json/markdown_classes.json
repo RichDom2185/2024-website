@@ -47,5 +47,22 @@
     "border-l-4",
     "border-dashed",
     "BORDER_DYNAMIC_COLOR"
-  ]
+  ],
+  "table": [
+    "mx-auto",
+    "table-auto",
+    "border-collapse",
+    "overflow-hidden",
+    "font-sans",
+    "TEXT_DYNAMIC_SPACING",
+    "dark:text-stone-300"
+  ],
+  "thead": ["bg-gray-100", "dark:bg-gray-800"],
+  "tbody > tr": [
+    "odd:bg-white",
+    "dark:even:bg-gray-800",
+    "even:bg-gray-50",
+    "dark:odd:bg-gray-900"
+  ],
+  "th,td": ["border", "BORDER_DYNAMIC_COLOR", "border-solid", "px-4", "py-2"]
 }
