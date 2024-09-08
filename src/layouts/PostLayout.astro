@@ -11,7 +11,7 @@ import MainLayout from './MainLayout.astro';
 import ShareButton from 'src/components/blog/ShareButton.astro';
 import 'src/styles/code-blocks.scss';
 import 'src/styles/shiki.scss';
-import { getPostUrl } from 'src/utilities/content';
+import { getPostOgImage, getPostUrl } from 'src/utilities/content';
 
 type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
@@ -19,6 +19,7 @@ const { data, slug, body } = post;
 const { title, date, updated, heroImage, heroAlt, authors } = data;
 
 const url = SITE_BASE_URL + getPostUrl(post);
+const ogImageUrl = SITE_BASE_URL + getPostOgImage(post);
 const excerpt = mdToExcerpt.processSync(body).value.toString();
 
 const prefix = '/assets/img';
@@ -31,6 +32,7 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
   light
   title={() => `${title} | ${SITE_BLOG_TITLE}`}
   description={excerpt}
+  image={ogImageUrl}
 >
   <div class="BACKGROUND_DYNAMIC_COLOR TEXT_DYNAMIC_COLOR">
     <Header alwaysShowLogo />
