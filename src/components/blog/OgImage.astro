@@ -1,0 +1,49 @@
+---
+// @ts-nocheck tw property is not recognized
+import avatar from 'src/assets/svg/avatar.svg?raw';
+import { SITE_BLOG_TITLE } from 'src/consts';
+import type { BlogPost } from 'src/utilities/content';
+import { mdToExcerpt } from 'src/utilities/markdown';
+
+const b64 = `data:image/svg+xml;base64,${btoa(avatar)}`;
+
+type Props = BlogPost;
+const { data, body } = Astro.props;
+const { title } = data;
+
+const excerpt = mdToExcerpt.processSync(body).value.toString();
+---
+
+<div
+  tw="bg-white flex flex-col w-full h-full justify-between items-center px-16 py-10"
+>
+  <div tw="flex self-start items-center">
+    <h1 tw="w-4/5 text-6xl font-bold leading-tight">
+      {title}
+    </h1>
+    <div tw="flex w-1/5"></div>
+  </div>
+  <div tw="flex pt-2 self-start items-center">
+    <p
+      style={{
+        overflow: 'hidden',
+        display: '-webkit-box',
+        '-webkit-box-orient': 'vertical',
+        '-webkit-line-clamp': 3,
+        textOverflow: 'ellipsis',
+      }}
+      tw="w-4/5 text-3xl leading-normal text-gray-700"
+    >
+      {excerpt}
+    </p>
+    <div tw="flex w-1/5"></div>
+  </div>
+  <div tw="flex pt-2 h-24 self-end">
+    <p tw="text-3xl font-medium flex items-center grow shrink-0">
+      {SITE_BLOG_TITLE}
+    </p>
+    <div tw="flex pl-4 h-full">
+      <img tw="h-full" src={b64} />
+    </div>
+  </div>
+</div>
