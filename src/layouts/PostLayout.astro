@@ -1,17 +1,17 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ShareButton from 'src/components/blog/ShareButton.astro';
 import Icon from 'src/components/common/Icon.astro';
 import FormattedDate from 'src/components/FormattedDate.astro';
 import Header from 'src/components/main/header/Header.astro';
 import { SITE_BASE_URL, SITE_BLOG_TITLE } from 'src/consts';
+import { getPostUrl } from 'src/utilities/content';
 import { mdToExcerpt } from 'src/utilities/markdown';
 import Footer from '../components/Footer.astro';
 import MainLayout from './MainLayout.astro';
 
-import ShareButton from 'src/components/blog/ShareButton.astro';
 import 'src/styles/code-blocks.scss';
 import 'src/styles/shiki.scss';
-import { getPostOgImage, getPostUrl } from 'src/utilities/content';
 
 type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
@@ -19,7 +19,8 @@ const { data, slug, body } = post;
 const { title, date, updated, heroImage, heroAlt, authors } = data;
 
 const url = SITE_BASE_URL + getPostUrl(post);
-const ogImageUrl = SITE_BASE_URL + getPostOgImage(post);
+// TODO: Restore when ready
+// const ogImageUrl = SITE_BASE_URL + getPostOgImage(post);
 const excerpt = mdToExcerpt.processSync(body).value.toString();
 
 const prefix = '/assets/img';
@@ -32,7 +33,6 @@ const imgPath = heroImage && `${prefix}/${year}/${month}/${slug}-${heroImage}`;
   light
   title={() => `${title} | ${SITE_BLOG_TITLE}`}
   description={excerpt}
-  image={ogImageUrl}
 >
   <div class="BACKGROUND_DYNAMIC_COLOR TEXT_DYNAMIC_COLOR">
     <Header alwaysShowLogo />
