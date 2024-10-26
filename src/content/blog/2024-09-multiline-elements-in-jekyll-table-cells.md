@@ -120,8 +120,8 @@ Of course, this is not what we want. We want to first:
 1. Render the text
 1. Replace the placeholder with the actual text content
 
-<details class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-0 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">Why render first before replacing?</b></summary>
+<details class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">Why render first before replacing?</b></summary>
 
 Recall our table:
 
@@ -238,8 +238,8 @@ For an example of a practical application for this, you can check out [this page
 
 Using Jekyll's `include` feature, I was able to separate the content for each row of the table into separate files, making it easier for individual team members to update, without having to worry about breaking the table layout.
 
-<details class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-2 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">The full Markdown layout for the table above:</b></summary>
+<details class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">The full Markdown layout for the table above:</b></summary>
 
 [Click here to view the code on GitHub](https://github.com/RichDom2185/tp/blob/master/docs/_ug/Placeholders.md?plain=1)
 
@@ -318,8 +318,8 @@ Have you ever had the need to create a table with lists or other multiline eleme
 
 <!-- TODO: Let me know in the comments below! -->
 
-<details open class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-0 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">TL;DR: Follow along using the GitHub Gist instead</b></summary>
+<details open class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">TL;DR: Follow along using the GitHub Gist instead</b></summary>
 
 A summary for this post can be found in this link: <https://gist.github.com/RichDom2185/26166ba51cf432b90a0afb04993d0640>.
 

@@ -35,7 +35,9 @@
     "shadow-sm",
     "min-w-[30%]",
     "max-h-[50vh]",
-    "object-contain"
+    "object-contain",
+    "dark:brightness-75",
+    "dark:contrast-125"
   ],
   "pre": ["overflow-x-auto", "px-6 py-4"],
   ":not(pre)>code": [

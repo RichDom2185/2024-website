@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .md-details {
+    @apply px-3 py-1 rounded bg-blue-100 dark:bg-blue-950 dark:text-stone-300 [&>:not(p):last-child]:!mb-2 [&>p:last-child]:!mb-1 space-y-2 [&_*]:my-0 [&_pre]:my-0;
+  }
+
+  .md-details__summary {
+    @apply cursor-pointer hover:underline underline-offset-4 marker:pr-4;
+  }
+}

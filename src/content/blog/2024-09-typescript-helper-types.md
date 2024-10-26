@@ -20,8 +20,8 @@ Here are some of my favorite simple utility types that I have used in my project
 
 ## 1. `SafeOmit`
 
-<details class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-2 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">TL;DR: Type Definition</b></summary>
+<details class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">TL;DR: Type Definition</b></summary>
 
 ```ts
 type SafeOmit<T, K extends keyof T> = Omit<T, K>;
@@ -86,8 +86,8 @@ It is a simple type that extends `Omit` but adds a constraint to ensure that the
 
 ## 2. `DeepPartial`
 
-<details open class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-2 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">Type Definition</b></summary>
+<details open class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">Type Definition</b></summary>
 
 ```ts
 type DeepPartial<T> = {
@@ -101,8 +101,8 @@ Not much needs to be said about `DeepPartial`. It is arguable one of the most-us
 
 ## 3. `Remove`
 
-<details class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-2 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">TL;DR: Type Definition</b></summary>
+<details class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">TL;DR: Type Definition</b></summary>
 
 ```ts
 type Remove<T, K extends keyof any> = {
@@ -183,8 +183,8 @@ In this sense, another possible name for `Remove` could be `DistributedOmit`.
 
 ## 4. `SizedArray`
 
-<details class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-2 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">TL;DR: Type Definition</b></summary>
+<details class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">TL;DR: Type Definition</b></summary>
 
 ```ts
 type SizedArray<
@@ -259,8 +259,8 @@ Be warned though, due to the recursive nature of this type, make sure to set rea
 
 ## 5. `Equals`
 
-<details class="px-3 py-1 rounded bg-blue-100 [&>*:last-child]:!mb-2 space-y-2 [&_*]:my-0">
-<summary class="cursor-pointer hover:underline underline-offset-4 marker:pr-4"><b class="pl-1">TL;DR: Type Definition</b></summary>
+<details class="md-details">
+<summary class="md-details__summary"><b class="pl-1 dark:font-semibold">TL;DR: Type Definition</b></summary>
 
 ```ts
 type Equals<S, T> = S extends T ? (T extends S ? true : false) : false;
