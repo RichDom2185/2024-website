@@ -52,7 +52,13 @@ const autolinkOptions = {
  */
 const transformerWrapWithDiv = {
   pre: (node) => {
-    const common = ['highlight', 'bg-[#f8f8f8]', 'mx-0 my-[1em]', 'rounded'];
+    const common = [
+      'highlight',
+      'bg-[#f8f8f8]',
+      'dark:bg-[#24292f]',
+      'mx-0 my-[1em]',
+      'rounded',
+    ];
     node.properties.class = clsx(node.properties.class, ...common);
     return h(
       'div',

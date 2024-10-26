@@ -207,7 +207,7 @@ By chaining filters together, we can make our code more concise and easier to re
 ## The Result
 
 <table class="mx-auto [&>*]:border [&_th]:px-3 [&_th]:py-2 [&_td]:px-3 [&_td]:py-2">
-  <thead class="bg-gray-100">
+  <thead class="bg-gray-100 dark:bg-gray-800">
     <tr>
       <th>Look Below!</th>
     </tr>

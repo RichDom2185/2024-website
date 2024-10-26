@@ -38,7 +38,13 @@
     "object-contain"
   ],
   "pre": ["overflow-x-auto", "px-6 py-4"],
-  ":not(pre)>code": ["bg-gray-200", "px-1 py-0.5", "rounded-sm"],
+  ":not(pre)>code": [
+    "bg-gray-200",
+    "dark:bg-gray-800",
+    "px-1 py-0.5",
+    "rounded-sm"
+  ],
+  "pre code span": ["dark:opacity-85"],
   "blockquote": [
     "space-y-4",
     "pl-4",
@@ -62,5 +68,6 @@
     "even:bg-gray-50",
     "dark:odd:bg-gray-900"
   ],
-  "th,td": ["border", "BORDER_DYNAMIC_COLOR", "border-solid", "px-4", "py-2"]
+  "th,td": ["border", "BORDER_DYNAMIC_COLOR", "border-solid", "px-4", "py-2"],
+  "hr": ["dark:border-[color:unset]"]
 }
