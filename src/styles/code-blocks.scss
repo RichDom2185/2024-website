@@ -77,3 +77,11 @@
 .highlight.language-ts::after {
   content: "TypeScript";
 }
+
+.highlight.language-jsx::after {
+  content: "JavaScript React";
+}
+
+.highlight.language-tsx::after {
+  content: "TypeScript React";
+}
