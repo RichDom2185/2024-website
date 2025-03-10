@@ -13,8 +13,7 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          # Match with .tool-versions file
-          bun-version: '1.1.8'
+          bun-version-file: .tool-versions
       - name: Setup node
         uses: actions/setup-node@v4
         with:
