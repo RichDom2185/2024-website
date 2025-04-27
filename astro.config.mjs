@@ -105,12 +105,7 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark',
       },
-      transformers: [
-        // @ts-expect-error incompatible type definitoion
-        transformerNotationErrorLevel(),
-        // @ts-expect-error incompatible type definitoion
-        transformerWrapWithDiv,
-      ],
+      transformers: [transformerNotationErrorLevel(), transformerWrapWithDiv],
     },
     remarkPlugins: [
       remarkMath,
