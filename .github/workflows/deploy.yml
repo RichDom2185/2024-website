@@ -38,4 +38,4 @@ jobs:
           external_repository: RichDom2185/richdom2185.github.io
           deploy_key: ${{ secrets.SITE_DEPLOY_KEY }}
           publish_dir: ./dist
-          cname: richarddominick.me
+          cname: gh.richarddominick.me
