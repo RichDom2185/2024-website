@@ -113,7 +113,7 @@ export const technologyToIconMap = Object.freeze({
   [Technology.MQTT]: 'simple-icons:mqtt',
   [Technology.SPRING]: 'devicon:spring',
   [Technology.GCP]: 'logos:google-cloud',
-  [Technology.FIREBASE]: 'logos:firebase',
+  [Technology.FIREBASE]: 'logos:firebase-icon',
   [Technology.GRAPHQL]: 'devicon-plain:graphql',
   [Technology.FFMPEG]: 'logos:ffmpeg-icon',
   [Technology.WASM]: 'devicon:wasm',
