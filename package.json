@@ -33,8 +33,6 @@
   },
   "devDependencies": {
     "@shikijs/transformers": "^1.29.2",
-    "@types/bun": "^1.2.10",
-    "@types/sharp": "^0.32.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "hastscript": "^9.0.1",
