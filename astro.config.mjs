@@ -38,10 +38,10 @@ const autolinkOptions = {
       className: clsx(
         'inline-block ml-1 text-sm',
         'opacity-0 group-hover:opacity-100',
-        'LINK_DYNAMIC_NO_HOVER'
+        'LINK_DYNAMIC_NO_HOVER',
       ),
     },
-    '#'
+    '#',
   ),
   // properties: { ariaHidden: true, tabIndex: -1 },
 };
@@ -66,10 +66,10 @@ const transformerWrapWithDiv = {
         className: clsx(
           ...common,
           node.properties.dataLanguage &&
-            `language-${node.properties.dataLanguage}`
+            `language-${node.properties.dataLanguage}`,
         ),
       },
-      node
+      node,
     );
   },
 };
