@@ -7,7 +7,7 @@ import FormattedDate from '../FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
-const { data, slug, body } = post;
+const { data, id: slug, body } = post;
 const { title, date, heroImage, heroAlt } = data;
 
 const url = getPostUrl(post);

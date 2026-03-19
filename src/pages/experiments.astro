@@ -7,10 +7,10 @@ import Page from 'src/components/main/ui/Page.astro';
 import Section from 'src/components/main/ui/Section.astro';
 import MainLayout from 'src/layouts/MainLayout.astro';
 
-const projects_2021 = await getEntry('projects', '2021');
-const projects_2022 = await getEntry('projects', '2022');
-const projects_2023 = await getEntry('projects', '2023');
-const projects_2024 = await getEntry('projects', '2024');
+const projects_2021 = await getEntry('projects', '2021')!;
+const projects_2022 = await getEntry('projects', '2022')!;
+const projects_2023 = await getEntry('projects', '2023')!;
+const projects_2024 = await getEntry('projects', '2024')!;
 
 const allProjects: Readonly<Record<string, Project[]>> = {
   // We allow undefined technology values for now

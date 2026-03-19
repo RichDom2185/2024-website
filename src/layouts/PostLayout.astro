@@ -16,7 +16,7 @@ import 'src/styles/shiki.scss';
 
 type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
-const { data, slug, body } = post;
+const { data, id: slug, body } = post;
 const { title, date, updated, heroImage, heroAlt, authors } = data;
 
 const url = SITE_BASE_URL + getPostUrl(post);

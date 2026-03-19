@@ -15,7 +15,7 @@ export async function getStaticPaths() {
     params: {
       year: post.data.date.getFullYear().toString(),
       month: String(post.data.date.getMonth() + 1).padStart(2, '0'),
-      slug: post.slug,
+      slug: post.id,
     },
     props: post,
   }));

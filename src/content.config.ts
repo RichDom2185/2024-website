@@ -1,8 +1,13 @@
 import { experienceSchema, projectSchema } from '@site-types/data';
-import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({
+    base: './src/content/blog',
+    pattern: '**/*.md',
+  }),
   // Type-check frontmatter using a schema
   schema: z.object({
     title: z.string(),
@@ -15,12 +20,18 @@ const blog = defineCollection({
 });
 
 const experience = defineCollection({
-  type: 'data',
+  loader: glob({
+    base: './src/content/experience',
+    pattern: '**/*.yml',
+  }),
   schema: z.array(experienceSchema),
 });
 
 const projects = defineCollection({
-  type: 'data',
+  loader: glob({
+    base: './src/content/projects',
+    pattern: '**/*.yml',
+  }),
   schema: z.array(projectSchema),
 });
 
