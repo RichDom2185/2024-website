@@ -7,4 +7,10 @@ type Props = {
 const { icon, inline, class: className } = Astro.props;
 ---
 
-<iconify-icon class={className} inline={inline} icon={icon}></iconify-icon>
+{
+  // Intentional, iconify-icon checks for the presence
+  // of the inline attribute, not its value. So we only
+  // want to include it if it's true.
+}
+<iconify-icon class={className} {...!!inline && { inline }} icon={icon}
+></iconify-icon>
