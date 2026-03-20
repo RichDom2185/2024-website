@@ -47,7 +47,39 @@ const autolinkOptions = {
 };
 
 /**
+ * Astro v5 handles code syntax highlighting at the AST level,
+ * so we have to use a transformer to remove the hardcoded background
+ * colors now.
+ *
  * @import {ShikiTransformer} from '@shikijs/core'
+ * @type {ShikiTransformer}
+ */
+const transformerRemoveDefaultThemeBackground = {
+  pre: (node) => {
+    const rawStyles = node.properties.style?.toString() || '';
+    /** @type {Record<string, string>} */
+    const styles = rawStyles.split(';').reduce((acc, style) => {
+      const [key, value] = style.split(':').map((s) => s.trim());
+      if (key && value) {
+        // @ts-ignore
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+    // Remove hardcoded background styles
+    // TODO: Investigate using https://shiki.style/guide/theme-colors#color-replacements
+    if (styles) {
+      delete styles['background-color'];
+      // Convert back to string
+      node.properties.style = Object.entries(styles)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join('; ');
+    }
+    return node;
+  },
+};
+
+/**
  * @type {ShikiTransformer}
  */
 const transformerWrapWithDiv = {
@@ -100,12 +132,15 @@ export default defineConfig({
       // @ts-expect-error incompatible type definitions
       langs: [brainfuck, plantuml],
       // Refer to https://shiki.style/guide/dual-themes
-      defaultColor: false,
       themes: {
         light: 'github-light',
         dark: 'github-dark',
       },
-      transformers: [transformerNotationErrorLevel(), transformerWrapWithDiv],
+      transformers: [
+        transformerRemoveDefaultThemeBackground,
+        transformerNotationErrorLevel(),
+        transformerWrapWithDiv,
+      ],
     },
     remarkPlugins: [
       remarkMath,
