@@ -8,13 +8,13 @@ const formComponentClasses = 'w-full flex gap-x-6 items-center';
 const labelClasses = clsx(
   'w-1/5 text-right text-sm leading-tight',
   'hidden md:block',
-  'TEXT_MEDIUM'
+  'TEXT_MEDIUM',
 );
 const inputClasses = clsx(
   'w-full rounded px-3 py-2',
   'bg-white dark:bg-slate-700 dark:bg-opacity-20',
   'shadow-none',
-  ['TEXT_STATIC_BLACK', 'dark:text-stone-300 font-normal']
+  ['TEXT_STATIC_BLACK', 'dark:text-stone-300 font-normal'],
 );
 
 // TODO: Refactor into form components
@@ -56,7 +56,7 @@ const ContactForm: Component = () => {
             'bg-slate-100 dark:bg-slate-700',
             'bg-opacity-95 shadow-md dark:bg-opacity-20',
             'TEXT_DYNAMIC_COLOR',
-            'rounded-lg'
+            'rounded-lg',
           )}
         >
           <div class="flex flex-col gap-y-1">
@@ -130,7 +130,7 @@ const ContactForm: Component = () => {
                 'outline outline-orange-600',
                 'dark:text-stone-300',
                 'px-4 py-3 space-y-2',
-                'rounded'
+                'rounded',
               )}
             >
               <p class="text-justify">

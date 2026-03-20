@@ -30,10 +30,10 @@ for (const [categoryName, categoryItems] of categories) {
     descriptions[categoryName] = descriptions[categoryName] || [];
 
     summaries[categoryName].push(
-      await container.renderToString(ExperienceSummary, { props: item })
+      await container.renderToString(ExperienceSummary, { props: item }),
     );
     descriptions[categoryName].push(
-      await container.renderToString(ExperienceDisplay, { props: item })
+      await container.renderToString(ExperienceDisplay, { props: item }),
     );
   }
 }

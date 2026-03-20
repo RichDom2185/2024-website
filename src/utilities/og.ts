@@ -9,7 +9,7 @@ import type { BlogPost } from './content';
 // https://github.com/vercel/satori/blob/main/playground/pages/api/font.ts
 export const getFont = async (fontName: string, weight: number) => {
   const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(
-    fontName
+    fontName,
   )}:wght@${weight}`;
   const response = await axios.get<string>(url);
   const css = response.data;

@@ -29,19 +29,19 @@ const filtered = !searchQuery
   : Object.fromEntries(
       Object.entries(allProjects).flatMap(([year, projects]) => {
         const filteredProjects = projects.filter(
-          (p) => true // matchesQuery(p.name, searchQuery)
+          (p) => true, // matchesQuery(p.name, searchQuery)
         );
         if (!filteredProjects.length) {
           return [];
         }
         return [[year, filteredProjects]];
-      })
+      }),
     );
 
 // Sort years in descending order
 const years = Object.keys(allProjects).sort((a, b) => Number(b) - Number(a));
 const sorted = years.flatMap((year) =>
-  year in filtered ? [[year, filtered[year]] as const] : []
+  year in filtered ? [[year, filtered[year]] as const] : [],
 );
 ---
 

@@ -30,7 +30,7 @@ const SimpleButton: Component<Props> = ({
         'select-none rounded',
         'hover:shadow-md',
         'hover:text-white dark:hover:text-stone-900',
-        'hover:bg-blue-600 dark:hover:bg-zinc-100'
+        'hover:bg-blue-600 dark:hover:bg-zinc-100',
       )}
       onClick={onClick}
     >

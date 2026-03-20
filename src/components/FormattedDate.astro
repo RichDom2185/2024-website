@@ -8,7 +8,7 @@ type Props = {
 const { date, withDay = false } = Astro.props;
 
 const formattedDate = dayjs(date).format(
-  withDay ? 'dddd, D MMM YYYY' : 'D MMM YYYY'
+  withDay ? 'dddd, D MMM YYYY' : 'D MMM YYYY',
 );
 ---
 

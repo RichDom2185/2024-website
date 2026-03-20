@@ -8,10 +8,10 @@
       "thead",
       "tbody",
       "tr",
-      "td"
-    ]
+      "td",
+    ],
   },
   "no-trailing-punctuation": {
-    "punctuation": ".,;:"
-  }
+    "punctuation": ".,;:",
+  },
 }

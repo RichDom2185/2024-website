@@ -23,7 +23,7 @@ const ExperienceShowcase: Component<Props> = ({
     <div
       class={clsx(
         'flex gap-x-8 justify-between',
-        flipped && 'flex-row-reverse'
+        flipped && 'flex-row-reverse',
       )}
     >
       <div class="w-[100%]">
@@ -31,7 +31,7 @@ const ExperienceShowcase: Component<Props> = ({
           <h2
             class={clsx(
               'text-2xl text-center font-display tracking-wider',
-              'TEXT_MEDIUM'
+              'TEXT_MEDIUM',
             )}
           >
             {category}
@@ -48,7 +48,7 @@ const ExperienceShowcase: Component<Props> = ({
                     // Adapted from Classes.HOVER_DYNAMIC_BACKGROUND,
                     // TODO: Match the colors to the description
                     'hover:bg-black/10 dark:hover:bg-white/10',
-                    getSelectedIndex() === i() && 'bg-black/5 dark:bg-white/5'
+                    getSelectedIndex() === i() && 'bg-black/5 dark:bg-white/5',
                   )}
                   onClick={() => setSelectedIndex(i())}
                   innerHTML={summaries[i()]}

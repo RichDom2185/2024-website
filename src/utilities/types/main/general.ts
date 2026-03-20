@@ -134,7 +134,7 @@ const darkFlip = clsx(
   'before:-top-[3px]',
   'before:-right-[4px]',
   'before:-left-[4px]',
-  'before:-bottom-[3px]'
+  'before:-bottom-[3px]',
 );
 
 export const technologyToColorClassMap: Readonly<
@@ -154,7 +154,7 @@ export const technologyToColorClassMap: Readonly<
     'before:top-[2px]',
     'before:right-[3px]',
     'before:left-[3px]',
-    'before:bottom-[2px]'
+    'before:bottom-[2px]',
   ),
   [Technology.AWS]: darkFlip,
   [Technology.NETLIFY]: darkFlip,
@@ -167,7 +167,7 @@ export const technologyToColorClassMap: Readonly<
     '-mt-[0.085rem]',
     '-mr-[0.170rem]',
     '-mb-[0.170rem]',
-    '-ml-[0.085rem]'
+    '-ml-[0.085rem]',
   ),
   [Technology.FLUTTER]: 'pl-0.5 pr-1',
   [Technology.DOCKER]: 'scale-90',
