@@ -32,7 +32,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@shikijs/transformers": "^3.23.0",
+    "@shikijs/transformers": "^4.0.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "hastscript": "^9.0.1",
