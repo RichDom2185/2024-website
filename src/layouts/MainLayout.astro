@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import FontMeta from 'src/components/head/FontMeta.astro';
 import GlobalMeta from 'src/components/head/GlobalMeta.astro';
 import GoogleTag from 'src/components/head/GoogleTag.astro';
@@ -33,11 +33,11 @@ const title =
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
-    <ViewTransitions />
+    <ClientRouter />
     <GoogleTag />
     {/* TODO: Deduplicate with BaseHead */}
     {/* TODO: meta canonical */}
-    {/* TODO: viewtransitions bug with click listener */}
+    {/* TODO: clientRouter bug with click listener */}
     <GlobalMeta />
     <FontMeta />
     <IconifyMeta />
