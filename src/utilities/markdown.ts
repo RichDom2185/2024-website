@@ -89,14 +89,18 @@ export function unwrapTopLevelDiv(className: string) {
 export function convertClassToClassName() {
   return function transformer(tree: HastRoot) {
     visit(tree, 'element', (node) => {
-      const existingClass = node.properties.class as string | undefined;
+      const existingClass = node.properties.class;
       if (existingClass) {
         const existingClassName = node.properties.className as
           | string[]
           | undefined;
         node.properties.className = [
           ...(existingClassName || []),
-          ...existingClass.split(' '),
+          ...(Array.isArray(existingClass)
+            ? existingClass
+            : typeof existingClass === 'string'
+              ? existingClass.split(' ')
+              : [`${existingClass}`]),
         ];
         delete node.properties.class;
       }
