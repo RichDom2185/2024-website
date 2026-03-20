@@ -86,6 +86,24 @@ export function unwrapTopLevelDiv(className: string) {
   };
 }
 
+export function convertClassToClassName() {
+  return function transformer(tree: HastRoot) {
+    visit(tree, 'element', (node) => {
+      const existingClass = node.properties.class as string | undefined;
+      if (existingClass) {
+        const existingClassName = node.properties.className as
+          | string[]
+          | undefined;
+        node.properties.className = [
+          ...(existingClassName || []),
+          ...existingClass.split(' '),
+        ];
+        delete node.properties.class;
+      }
+    });
+  };
+}
+
 export const mdToHtmlString = (linkOptions: LinkOptions) =>
   unified()
     .use(remarkParse)

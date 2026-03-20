@@ -21,6 +21,7 @@ import { remarkTruncateLinks } from 'remark-truncate-links';
 import { SITE_BASE_URL } from './src/consts';
 import { brainfuck, markdownClasses, plantuml } from './src/lib/json';
 import {
+  convertClassToClassName,
   openExternalLinksInNewTab,
   unwrapTopLevelDiv,
   wrapWithTopLevelDiv,
@@ -149,6 +150,12 @@ export default defineConfig({
       remarkGemoji,
     ],
     rehypePlugins: [
+      // Astro v5+ uses `class` instead of `className`,
+      // but most rehype plugins take either `className` only,
+      // or use `className` with higher precedence than `class`.
+      // This results in lost class names from rehype plugins,
+      // which breaks styling.
+      convertClassToClassName,
       openExternalLinksInNewTab,
       rehypeMathjax,
       // @ts-expect-error incompatible type definitoion
