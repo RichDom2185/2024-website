@@ -20,7 +20,7 @@
     "@astrojs/react": "^5.0.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.1",
-    "@astrojs/solid-js": "^6.0.1",
+    "@astrojs/solid-js": "^7.1.2",
     "@astrojs/tailwind": "^6.0.2",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.6",
